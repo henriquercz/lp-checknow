@@ -10,6 +10,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { LucideIcon, Home, Shield, DollarSign, HelpCircle, Download, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
@@ -171,10 +172,13 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
       <div className="flex items-center gap-1 bg-white/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 backdrop-blur-lg py-1.5 px-1.5 rounded-full shadow-lg">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 px-4 hover:opacity-80 transition-opacity">
-          <img 
+          <Image 
             src="/images/logo-sem-fundo.png" 
             alt="CheckNow Logo" 
+            width={32}
+            height={32}
             className="w-8 h-8 object-contain"
+            priority
           />
           <span className="font-bold text-base hidden sm:inline">CheckNow</span>
         </a>

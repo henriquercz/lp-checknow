@@ -13,6 +13,8 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   weight: ["400", "500", "600", "700"],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -112,6 +114,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/logo-sem-fundo.png" as="image" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <script
           dangerouslySetInnerHTML={{

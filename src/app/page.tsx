@@ -8,6 +8,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
@@ -236,25 +237,37 @@ export default function Home() {
           <div className="w-full h-full overflow-y-auto scrollbar-hide">
             <div className="space-y-2 p-2">
               {/* Telas do app em proporção 9:16 */}
-              <img 
+              <Image 
                 src="/images/checkito/checkito_tela1.png" 
                 alt="CheckNow App - Tela 1"
+                width={400}
+                height={711}
                 className="w-full h-auto rounded-lg"
+                loading="lazy"
               />
-              <img 
+              <Image 
                 src="/images/checkito/checkito_tela2.png" 
                 alt="CheckNow App - Tela 2"
+                width={400}
+                height={711}
                 className="w-full h-auto rounded-lg"
+                loading="lazy"
               />
-              <img 
+              <Image 
                 src="/images/checkito/checkito_tela3.png" 
                 alt="CheckNow App - Tela 3"
+                width={400}
+                height={711}
                 className="w-full h-auto rounded-lg"
+                loading="lazy"
               />
-              <img 
+              <Image 
                 src="/images/checkito/checkito_tela4.png" 
                 alt="CheckNow App - Tela 4"
+                width={400}
+                height={711}
                 className="w-full h-auto rounded-lg"
+                loading="lazy"
               />
             </div>
           </div>

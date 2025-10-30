@@ -8,6 +8,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Instagram } from "lucide-react";
 import { Container } from "./Container";
 import { FOOTER_LINKS } from "@/lib/constants";
@@ -28,9 +29,11 @@ export function Footer() {
               viewport={{ once: true }}
             >
               <div className="flex items-center gap-2 mb-4">
-                <img 
+                <Image 
                   src="/images/logo-sem-fundo.png" 
                   alt="CheckNow Logo" 
+                  width={40}
+                  height={40}
                   className="w-10 h-10 object-contain"
                 />
                 <span className="font-bold text-lg">CheckNow</span>

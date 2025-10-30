@@ -21,13 +21,15 @@ interface FeatureCardProps {
 }
 
 export function FeatureCard({ icon: Icon, title, description, delay = 0, className }: FeatureCardProps) {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -8, scale: 1.02 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0 : delay }}
+      whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
       className={cn(
         "group relative p-6 rounded-2xl",
         "bg-white dark:bg-neutral-900",

@@ -30,6 +30,30 @@ body {
   @apply antialiased;
 }
 
+/* Performance: Reduzir animações no mobile para evitar "piscar" */
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+}
+
+/* Otimização de rendering */
+img, svg, video, iframe {
+  content-visibility: auto;
+}
+
+/* Will-change apenas quando necessário */
+.hover\:scale-105:hover,
+.hover\:scale-110:hover {
+  will-change: transform;
+}
+
+/* Remove will-change após animação */
+*:not(:hover) {
+  will-change: auto;
+}
+
 /* Tipografia */
 h1,
 h2,
