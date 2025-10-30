@@ -14,6 +14,7 @@ import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { SplineRobot } from "@/components/SplineRobot";
 import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
@@ -102,23 +103,16 @@ export default function Home() {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
             >
-              <Button
-                size="lg"
-                icon={<Download size={20} />}
-                className="shadow-lg hover:shadow-xl"
-              >
-                Baixar Agora
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                icon={<ArrowRight size={20} />}
-                iconPosition="right"
-              >
-                Saiba Mais
-              </Button>
+              <InteractiveHoverButton>
+                <Download size={20} />
+                <span>Baixar Agora</span>
+              </InteractiveHoverButton>
+              <InteractiveHoverButton className="bg-gradient-to-r from-success-500 to-success-600 hover:from-success-600 hover:to-success-700 hover:shadow-success-500/50">
+                <span>Saiba Mais</span>
+                <ArrowRight size={20} />
+              </InteractiveHoverButton>
             </motion.div>
 
               {/* Stats */}
