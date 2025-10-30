@@ -13,6 +13,7 @@ import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
+import { SplineRobot } from "@/components/SplineRobot";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
@@ -57,21 +58,23 @@ export default function Home() {
         </div>
 
         <Container size="lg">
-          <motion.div
-            className="text-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {/* Badge */}
-            <motion.div variants={itemVariants} className="mb-6 flex justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800">
-                <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse" />
-                <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
-                  Verificação Inteligente com IA
-                </span>
-              </div>
-            </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Content */}
+            <motion.div
+              className="text-center lg:text-left"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {/* Badge */}
+              <motion.div variants={itemVariants} className="mb-6 flex justify-center lg:justify-start">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800">
+                  <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse" />
+                  <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
+                    Verificação Inteligente com IA
+                  </span>
+                </div>
+              </motion.div>
 
             {/* Título Principal */}
             <motion.h1
@@ -116,25 +119,36 @@ export default function Home() {
               </Button>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto"
-            >
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-500">100K+</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400">Usuários Ativos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-500">1M+</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400">Notícias Verificadas</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-500">99%</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400">Precisão</div>
-              </div>
+              {/* Stats */}
+              <motion.div
+                variants={itemVariants}
+                className="grid grid-cols-3 gap-4 md:gap-8"
+              >
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl md:text-3xl font-bold text-primary-500">100K+</div>
+                  <div className="text-sm text-neutral-600 dark:text-neutral-400">Usuários Ativos</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl md:text-3xl font-bold text-primary-500">1M+</div>
+                  <div className="text-sm text-neutral-600 dark:text-neutral-400">Notícias Verificadas</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl md:text-3xl font-bold text-primary-500">99%</div>
+                  <div className="text-sm text-neutral-600 dark:text-neutral-400">Precisão</div>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Right Column - 3D Robot */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative h-[500px] lg:h-[600px] hidden lg:block"
+            >
+              <SplineRobot className="w-full h-full" />
+            </motion.div>
+          </div>
         </Container>
       </section>
 
