@@ -67,11 +67,12 @@ export const HoverCard3D: React.FC<HoverCard3DProps> = ({
           transformStyle: "preserve-3d",
         }}
         className={cn(
-          "relative rounded-2xl p-8",
+          "relative rounded-3xl p-10",
           "bg-white dark:bg-neutral-800",
-          "border border-neutral-200 dark:border-neutral-700",
+          "border border-neutral-200/50 dark:border-neutral-700/50",
           "shadow-xl hover:shadow-2xl",
-          "transition-shadow duration-300",
+          "transition-all duration-500",
+          "backdrop-blur-sm",
           className
         )}
       >

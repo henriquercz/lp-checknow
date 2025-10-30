@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
 
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(255, 255, 255)",
-  gradientBackgroundEnd = "rgb(249, 250, 251)",
+  gradientBackgroundEnd = "rgba(249, 251, 249, 1)",
   firstColor = "37, 99, 235",
   secondColor = "34, 197, 94",
   thirdColor = "59, 130, 246",
@@ -85,15 +85,16 @@ export const BackgroundGradientAnimation = ({
       if (!interactiveRef.current) {
         return;
       }
-      setCurX(curX + (tgX - curX) / 20);
-      setCurY(curY + (tgY - curY) / 20);
+      setCurX((prevX) => prevX + (tgX - prevX) / 20);
+      setCurY((prevY) => prevY + (tgY - prevY) / 20);
       interactiveRef.current.style.transform = `translate(${Math.round(
         curX
       )}px, ${Math.round(curY)}px)`;
     }
 
-    move();
-  }, [tgX, tgY, curX, curY]);
+    const animationFrame = requestAnimationFrame(move);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [tgX, tgY]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (interactiveRef.current) {

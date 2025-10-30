@@ -156,77 +156,79 @@ export const VisionMissionValues: React.FC = () => {
         {vmvData.map((item) => (
           <motion.div key={item.id} variants={itemVariants}>
             <HoverCard3D
-              className="relative overflow-hidden group"
+              className="relative overflow-visible group"
               containerClassName="h-full"
             >
-              {/* Gradiente animado de fundo */}
-              <div className={cn(
-                "absolute inset-0 bg-gradient-to-br opacity-5 group-hover:opacity-10 transition-opacity duration-500",
-                item.gradient
-              )} />
-
-              {/* Partículas flutuantes */}
-              {item.particles.map((_, i) => (
-                <motion.div
-                  key={i}
-                  className={cn(
-                    "absolute w-2 h-2 rounded-full bg-gradient-to-br",
-                    item.gradient,
-                    "opacity-20"
-                  )}
-                  style={{
-                    top: `${20 + i * 15}%`,
-                    left: `${10 + i * 20}%`,
-                  }}
-                  animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.2, 0.5, 0.2],
-                  }}
-                  transition={{
-                    duration: 3 + i,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.5,
-                  }}
-                />
-              ))}
-
-              {/* Ícone animado */}
-              <motion.div
-                className={cn(
-                  "inline-flex p-4 rounded-2xl bg-gradient-to-br mb-6",
-                  item.gradient,
-                  "text-white shadow-lg"
-                )}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {item.icon}
-              </motion.div>
-
-              {/* Título com gradiente */}
-              <h3 className={cn(
-                "text-3xl font-bold mb-4 bg-gradient-to-br bg-clip-text text-transparent",
-                item.gradient
-              )}>
-                {item.title}
-              </h3>
-
-              {/* Descrição */}
-              <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                {item.description}
-              </p>
-
-              {/* Linha decorativa animada */}
-              <motion.div
-                className={cn(
-                  "absolute bottom-0 left-0 h-1 bg-gradient-to-r",
+              {/* Película de gradiente por cima */}
+              <div className="absolute -inset-4 overflow-visible pointer-events-none z-10">
+                <div className={cn(
+                  "absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl opacity-5 group-hover:opacity-10 transition-opacity duration-700 bg-gradient-to-br",
                   item.gradient
-                )}
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                transition={{ duration: 1, delay: 0.5 }}
-              />
+                )} />
+                <div className={cn(
+                  "absolute -bottom-32 -left-32 w-96 h-96 rounded-full blur-3xl opacity-5 group-hover:opacity-10 transition-opacity duration-700 bg-gradient-to-tl",
+                  item.gradient
+                )} />
+              </div>
+
+              {/* Partículas flutuantes por cima */}
+              <div className="absolute inset-0 pointer-events-none z-20">
+                {item.particles.map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className={cn(
+                      "absolute w-2 h-2 rounded-full bg-gradient-to-br",
+                      item.gradient,
+                      "opacity-20"
+                    )}
+                    style={{
+                      top: `${15 + (i * 18)}%`,
+                      right: `${5 + (i * 15)}%`,
+                    }}
+                    animate={{
+                      y: [0, -30, 0],
+                      x: [0, 15, 0],
+                      opacity: [0.1, 0.4, 0.1],
+                      scale: [1, 1.3, 1],
+                    }}
+                    transition={{
+                      duration: 4 + i * 0.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.8,
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Conteúdo do card */}
+              <div className="relative z-30">
+                {/* Ícone animado */}
+                <motion.div
+                  className={cn(
+                    "inline-flex p-5 rounded-3xl bg-gradient-to-br mb-8",
+                    item.gradient,
+                    "text-white shadow-2xl ring-4 ring-white/20 dark:ring-neutral-900/20"
+                  )}
+                  whileHover={{ scale: 1.05, rotate: 3 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                >
+                  {item.icon}
+                </motion.div>
+
+                {/* Título com gradiente */}
+                <h3 className={cn(
+                  "text-4xl font-bold mb-6 bg-gradient-to-br bg-clip-text text-transparent",
+                  item.gradient
+                )}>
+                  {item.title}
+                </h3>
+
+                {/* Descrição */}
+                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">
+                  {item.description}
+                </p>
+              </div>
             </HoverCard3D>
           </motion.div>
         ))}
