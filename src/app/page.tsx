@@ -24,6 +24,7 @@ import { VisionMissionValues } from "@/components/VisionMissionValues";
 import { PricingCard } from "@/components/PricingCard";
 import { FAQItem } from "@/components/FAQItem";
 import { Footer } from "@/components/Footer";
+import { StructuredData } from "@/components/StructuredData";
 import { FEATURES, STEPS, PLANS, FAQ } from "@/lib/constants";
 
 // Variantes de animação
@@ -50,11 +51,17 @@ const itemVariants = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-neutral-900">
+      {/* Structured Data for SEO */}
+      <StructuredData />
+      
       {/* Navbar */}
       <TubelightNavbar />
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-4">
+      <section 
+        className="relative h-screen flex items-center justify-center overflow-hidden pt-4"
+        aria-label="Seção principal"
+      >
         {/* Background Gradient */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />

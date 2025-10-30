@@ -16,33 +16,79 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CheckNow - Verificador Inteligente de Notícias",
+  metadataBase: new URL('https://checknow.app'),
+  title: {
+    default: "CheckNow - Verificador Inteligente de Notícias com IA",
+    template: "%s | CheckNow"
+  },
   description:
-    "Combata a desinformação com inteligência artificial. Verifique notícias em segundos com o CheckNow.",
+    "Combata a desinformação com inteligência artificial. Verifique notícias em segundos, identifique fake news e proteja-se contra informações falsas. Tecnologia de ponta para fact-checking no Brasil.",
   keywords: [
     "fake news",
     "verificação de notícias",
     "desinformação",
+    "inteligência artificial",
     "IA",
     "fact-checking",
+    "checagem de fatos",
+    "notícias falsas",
+    "verificador de notícias",
+    "combate à desinformação",
+    "análise de notícias",
+    "detector de fake news",
+    "verificação automática",
+    "tecnologia contra fake news",
+    "Brasil",
+    "América Latina"
   ],
-  authors: [{ name: "Capitão Henrique" }],
-  creator: "Capitão Henrique",
+  authors: [{ name: "CheckNow Team", url: "https://checknow.app" }],
+  creator: "CheckNow",
+  publisher: "CheckNow",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: "https://checknow.app",
-    title: "CheckNow - Verificador Inteligente de Notícias",
+    title: "CheckNow - Verificador Inteligente de Notícias com IA",
     description:
-      "Combata a desinformação com inteligência artificial. Verifique notícias em segundos com o CheckNow.",
+      "Combata a desinformação com inteligência artificial. Verifique notícias em segundos, identifique fake news e proteja-se contra informações falsas.",
     siteName: "CheckNow",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "CheckNow - Verificador Inteligente de Notícias",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CheckNow - Verificador Inteligente de Notícias",
+    title: "CheckNow - Verificador Inteligente de Notícias com IA",
     description:
       "Combata a desinformação com inteligência artificial. Verifique notícias em segundos com o CheckNow.",
+    images: ["/images/og-image.png"],
+    creator: "@checknowapp",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: "https://checknow.app",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
@@ -54,9 +100,18 @@ export default function RootLayout({
     <html lang="pt-BR" className={inter.variable} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#2563EB" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="CheckNow" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
