@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { Download, ArrowRight, Shield, Link, Zap, BarChart3 } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import { Navbar } from "@/components/Navbar";
+import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { Footer } from "@/components/Footer";
 import { FEATURES, STEPS, PLANS, TESTIMONIALS, FAQ } from "@/lib/constants";
 
@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-neutral-900">
       {/* Navbar */}
-      <Navbar />
+      <TubelightNavbar />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
