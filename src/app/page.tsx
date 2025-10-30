@@ -8,7 +8,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, ArrowRight, Shield, Zap, Brain, Lock, TrendingUp, Clock } from "lucide-react";
+import { Download, ArrowRight, Shield, Zap, Brain, Lock, TrendingUp, Clock, Sparkles } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
@@ -17,6 +17,7 @@ import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { PricingCard } from "@/components/PricingCard";
+import { FAQItem } from "@/components/FAQItem";
 import { Footer } from "@/components/Footer";
 import { FEATURES, STEPS, PLANS, TESTIMONIALS, FAQ } from "@/lib/constants";
 
@@ -302,66 +303,98 @@ export default function Home() {
             </motion.h2>
           </motion.div>
 
-          <motion.div
-            className="space-y-4"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {FAQ.map((faq) => (
-              <motion.details
+          <div className="space-y-4">
+            {FAQ.map((faq, index) => (
+              <FAQItem
                 key={faq.id}
-                variants={itemVariants}
-                className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
-              >
-                <summary className="flex items-center justify-between font-semibold text-lg">
-                  {faq.question}
-                  <span className="text-primary-500 group-open:rotate-180 transition-transform">
-                    ▼
-                  </span>
-                </summary>
-                <p className="mt-4 text-neutral-600 dark:text-neutral-400">{faq.answer}</p>
-              </motion.details>
+                question={faq.question}
+                answer={faq.answer}
+                delay={index * 0.1}
+              />
             ))}
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* CTA Final Section */}
-      <section className="section bg-gradient-to-r from-primary-500 to-primary-600 text-white">
-        <Container size="md">
+      <section className="relative section overflow-hidden bg-gradient-to-br from-primary-500 via-primary-600 to-success-600 text-white">
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3]
+            }}
+            transition={{ duration: 4, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 w-96 h-96 bg-success-500/20 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              opacity: [0.2, 0.4, 0.2]
+            }}
+            transition={{ duration: 5, repeat: Infinity }}
+          />
+        </div>
+
+        <Container size="md" className="relative z-10">
           <motion.div
             className="text-center"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6">
+            {/* Icon */}
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              whileInView={{ scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, type: "spring" }}
+              className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm mb-6"
+            >
+              <Sparkles size={40} className="text-white" />
+            </motion.div>
+
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-4xl md:text-6xl font-bold mb-6"
+            >
               Pronto para Combater a Desinformação?
             </motion.h2>
+            
             <motion.p
-              variants={itemVariants}
-              className="text-lg text-primary-100 max-w-2xl mx-auto mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-xl text-white/90 max-w-2xl mx-auto mb-10"
             >
               Baixe o CheckNow agora e comece a verificar notícias com inteligência artificial
             </motion.p>
+            
             <motion.div
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button
-                variant="secondary"
                 size="lg"
                 icon={<Download size={20} />}
+                className="!bg-white !text-primary-600 hover:!bg-neutral-100 shadow-2xl"
               >
                 Baixar CheckNow
               </Button>
               <Button
-                variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white/10"
+                icon={<ArrowRight size={20} />}
+                className="!bg-white/10 !text-white hover:!bg-white/20 backdrop-blur-sm border-2 border-white/30"
               >
                 Saiba Mais
               </Button>

@@ -14,6 +14,7 @@ export { FeatureCard } from "./FeatureCard";
 export { StepCard } from "./StepCard";
 export { TestimonialCard } from "./TestimonialCard";
 export { PricingCard } from "./PricingCard";
+export { FAQItem } from "./FAQItem";
 export { Footer } from "./Footer";
 export { Card } from "./Card";
 export { GlassCard } from "./GlassCard";
