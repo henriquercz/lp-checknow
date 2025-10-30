@@ -16,6 +16,7 @@ import { AnimatedWords } from "@/components/AnimatedWords";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
+import { PricingCard } from "@/components/PricingCard";
 import { Footer } from "@/components/Footer";
 import { FEATURES, STEPS, PLANS, TESTIMONIALS, FAQ } from "@/lib/constants";
 
@@ -270,51 +271,19 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {PLANS.map((plan) => (
-              <motion.div
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {PLANS.map((plan, index) => (
+              <PricingCard
                 key={plan.id}
-                variants={itemVariants}
-                className={`p-8 rounded-xl border transition-all duration-300 ${
-                  plan.highlighted
-                    ? "bg-primary-500 text-white border-primary-600 shadow-lg scale-105"
-                    : "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700"
-                }`}
-              >
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className={plan.highlighted ? "text-primary-100" : "text-neutral-600 dark:text-neutral-400"}>
-                  {plan.description}
-                </p>
-                <div className="my-6">
-                  <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className={plan.highlighted ? "text-primary-100" : "text-neutral-600 dark:text-neutral-400"}>
-                    {plan.period}
-                  </span>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <span className="text-primary-500 dark:text-primary-400">✓</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  variant={plan.highlighted ? "secondary" : "primary"}
-                  size="lg"
-                  className="w-full"
-                >
-                  {plan.cta}
-                </Button>
-              </motion.div>
+                name={plan.name}
+                price={plan.price}
+                description={plan.description}
+                features={plan.features}
+                highlighted={plan.highlighted}
+                delay={index * 0.2}
+              />
             ))}
-          </motion.div>
+          </div>
         </Container>
       </section>
 
