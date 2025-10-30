@@ -60,16 +60,24 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              (function() {
+              try {
                 const theme = localStorage.getItem('theme');
+                const html = document.documentElement;
+                
                 if (theme === 'dark') {
-                  document.documentElement.classList.add('dark');
+                  html.classList.add('dark');
                 } else if (theme === 'light') {
-                  document.documentElement.classList.remove('dark');
-                } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                  document.documentElement.classList.add('dark');
+                  html.classList.remove('dark');
+                } else {
+                  // Se não tem preferência salva, usa a do sistema
+                  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (systemPrefersDark) {
+                    html.classList.add('dark');
+                  } else {
+                    html.classList.remove('dark');
+                  }
                 }
-              })();
+              } catch (e) {}
             `,
           }}
         />

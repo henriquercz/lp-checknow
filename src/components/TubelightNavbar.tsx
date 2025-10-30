@@ -77,14 +77,18 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
 
   const toggleTheme = () => {
     const html = document.documentElement;
-    if (html.classList.contains('dark')) {
+    const isDarkNow = html.classList.contains('dark');
+    
+    if (isDarkNow) {
       html.classList.remove('dark');
       localStorage.setItem('theme', 'light');
       setIsDark(false);
+      console.log('Mudou para LIGHT');
     } else {
       html.classList.add('dark');
       localStorage.setItem('theme', 'dark');
       setIsDark(true);
+      console.log('Mudou para DARK');
     }
   };
 
