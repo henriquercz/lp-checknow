@@ -9,5 +9,6 @@ export { Button } from "./Button";
 export { Container } from "./Container";
 export { Navbar } from "./Navbar";
 export { TubelightNavbar } from "./TubelightNavbar";
+export { AnimatedWords } from "./AnimatedWords";
 export { Footer } from "./Footer";
 export { Card } from "./Card";

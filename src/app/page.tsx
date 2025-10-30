@@ -8,10 +8,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, ArrowRight, Shield, Link, Zap, BarChart3 } from "lucide-react";
+import { Download, ArrowRight, Shield } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
+import { AnimatedWords } from "@/components/AnimatedWords";
 import { Footer } from "@/components/Footer";
 import { FEATURES, STEPS, PLANS, TESTIMONIALS, FAQ } from "@/lib/constants";
 
@@ -72,8 +73,12 @@ export default function Home() {
               variants={itemVariants}
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             >
-              Combata a{" "}
-              <span className="text-gradient">Desinformação</span>
+              Combata a desinformação com{" "}
+              <span className="text-gradient">
+                <AnimatedWords 
+                  words={["Inteligência", "Precisão", "Segurança", "Confiança", "Tecnologia"]}
+                />
+              </span>
             </motion.h1>
 
             {/* Subtítulo */}

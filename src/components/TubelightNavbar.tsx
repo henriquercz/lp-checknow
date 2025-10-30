@@ -128,7 +128,7 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
         <Button 
           size="sm" 
           icon={<Download size={16} />} 
-          className="ml-1 rounded-full px-4 py-2"
+          className="ml-1 rounded-full px-3 py-2"
         >
           <span className="hidden sm:inline">Baixar</span>
         </Button>
