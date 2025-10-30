@@ -12,6 +12,7 @@ export { TubelightNavbar } from "./TubelightNavbar";
 export { AnimatedWords } from "./AnimatedWords";
 export { FeatureCard } from "./FeatureCard";
 export { StepCard } from "./StepCard";
+export { TestimonialCard } from "./TestimonialCard";
 export { Footer } from "./Footer";
 export { Card } from "./Card";
 export { GlassCard } from "./GlassCard";

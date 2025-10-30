@@ -15,6 +15,7 @@ import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
+import { TestimonialCard } from "@/components/TestimonialCard";
 import { Footer } from "@/components/Footer";
 import { FEATURES, STEPS, PLANS, TESTIMONIALS, FAQ } from "@/lib/constants";
 
@@ -232,41 +233,19 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {TESTIMONIALS.map((testimonial) => (
-              <motion.div
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {TESTIMONIALS.map((testimonial, index) => (
+              <TestimonialCard
                 key={testimonial.id}
-                variants={itemVariants}
-                className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">★</span>
-                  ))}
-                </div>
-                <p className="text-neutral-700 dark:text-neutral-300 mb-4 italic">
-                  "{testimonial.content}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold text-sm">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-neutral-600 dark:text-neutral-400">
-                      {testimonial.role}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+                name={testimonial.name}
+                role={testimonial.role}
+                avatar={testimonial.avatar}
+                content={testimonial.content}
+                rating={testimonial.rating}
+                delay={index * 0.2}
+              />
             ))}
-          </motion.div>
+          </div>
         </Container>
       </section>
 
