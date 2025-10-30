@@ -49,19 +49,19 @@ export function SplineRobot({ className = "" }: SplineRobotProps) {
       />
 
       {/* Container Central */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center pt-20">
         {/* Logo CheckNow no topo */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-8"
+          className="mb-4"
         >
           <Image
             src="/images/logo-com-nome-e-sem-fundo.png"
             alt="CheckNow"
-            width={200}
-            height={60}
+            width={180}
+            height={50}
             className="drop-shadow-2xl"
             priority
           />
@@ -75,7 +75,7 @@ export function SplineRobot({ className = "" }: SplineRobotProps) {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="relative w-[450px] h-[450px]"
+          className="relative w-[400px] h-[400px]"
         >
           {checkitoImages.map((image, idx) => (
             <motion.div
@@ -91,8 +91,8 @@ export function SplineRobot({ className = "" }: SplineRobotProps) {
               <Image
                 src={image}
                 alt="Checkito - Mascote do CheckNow"
-                width={450}
-                height={450}
+                width={400}
+                height={400}
                 className="drop-shadow-2xl"
                 priority={idx === 0}
               />

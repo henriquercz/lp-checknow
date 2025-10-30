@@ -13,6 +13,7 @@ import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
+import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
 import { SplineRobot } from "@/components/SplineRobot";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
@@ -50,7 +51,7 @@ export default function Home() {
       <TubelightNavbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-4">
         {/* Background Gradient */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
@@ -58,10 +59,10 @@ export default function Home() {
         </div>
 
         <Container size="lg">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             {/* Left Column - Content */}
             <motion.div
-              className="text-center lg:text-left"
+              className="text-center lg:text-left pt-10"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -94,7 +95,7 @@ export default function Home() {
               variants={itemVariants}
               className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8"
             >
-              Verifique notícias em segundos com inteligência artificial avançada. CheckNow é sua defesa definitiva contra fake news.
+              Verifique notícias em segundos com inteligência artificial avançada. <AnimatedUnderlineText text="CheckNow" /> é sua defesa definitiva contra fake news.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -144,7 +145,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative h-[500px] lg:h-[600px] hidden lg:block"
+              className="relative h-[450px] lg:h-[500px] hidden lg:block"
             >
               <SplineRobot className="w-full h-full" />
             </motion.div>
