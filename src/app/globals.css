@@ -1,0 +1,360 @@
+/**
+ * Estilos Globais da Landing Page CheckNow
+ * Autor: Capitão Henrique
+ * Data: Outubro 2025
+ * Versão: 1.0.0
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variáveis CSS */
+:root {
+  --primary: 37 99 235;
+  --primary-rgb: rgb(var(--primary));
+  --success: 34 197 94;
+  --error: 239 68 68;
+  --warning: 245 158 11;
+}
+
+/* Estilos Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* Tipografia */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-inter font-bold;
+}
+
+h1 {
+  @apply text-5xl md:text-6xl lg:text-7xl;
+}
+
+h2 {
+  @apply text-4xl md:text-5xl lg:text-6xl;
+}
+
+h3 {
+  @apply text-3xl md:text-4xl lg:text-5xl;
+}
+
+h4 {
+  @apply text-2xl md:text-3xl lg:text-4xl;
+}
+
+h5 {
+  @apply text-xl md:text-2xl lg:text-3xl;
+}
+
+h6 {
+  @apply text-lg md:text-xl lg:text-2xl;
+}
+
+p {
+  @apply text-base md:text-lg leading-relaxed;
+}
+
+/* Links */
+a {
+  @apply transition-colors duration-300;
+}
+
+a:hover {
+  @apply text-primary-600;
+}
+
+/* Scrollbar customizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neutral-100 dark:bg-neutral-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300 dark:bg-neutral-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-400 dark:bg-neutral-600;
+}
+
+/* Seleção de texto */
+::selection {
+  @apply bg-primary-500 text-white;
+}
+
+/* Inputs e Textareas */
+input,
+textarea,
+select {
+  @apply font-inter;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2 dark:ring-offset-neutral-900;
+}
+
+/* Animações customizadas */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.8);
+  }
+}
+
+/* Gradientes */
+.gradient-primary {
+  @apply bg-gradient-to-r from-primary-500 to-primary-600;
+}
+
+.gradient-primary-text {
+  @apply bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent;
+}
+
+.gradient-primary-dark {
+  @apply bg-gradient-to-br from-primary-600 to-primary-800;
+}
+
+/* Efeitos de vidro (Glassmorphism) */
+.glass {
+  @apply bg-white/30 dark:bg-neutral-900/30 backdrop-blur-md border border-white/20 dark:border-neutral-700/20;
+}
+
+.glass-lg {
+  @apply bg-white/20 dark:bg-neutral-900/20 backdrop-blur-lg border border-white/10 dark:border-neutral-700/10;
+}
+
+/* Cards */
+.card {
+  @apply rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-sm hover:shadow-md transition-shadow duration-300;
+}
+
+.card-lg {
+  @apply rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-lg hover:shadow-xl transition-shadow duration-300;
+}
+
+/* Botões */
+.btn-primary {
+  @apply px-6 py-3 bg-primary-500 text-white font-semibold rounded-lg hover:bg-primary-600 active:bg-primary-700 transition-colors duration-300;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-neutral-100 text-neutral-900 font-semibold rounded-lg hover:bg-neutral-200 active:bg-neutral-300 transition-colors duration-300 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700;
+}
+
+.btn-outline {
+  @apply px-6 py-3 border-2 border-primary-500 text-primary-500 font-semibold rounded-lg hover:bg-primary-50 active:bg-primary-100 transition-colors duration-300 dark:hover:bg-primary-900 dark:hover:bg-opacity-20;
+}
+
+/* Badges */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.badge-primary {
+  @apply badge bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-100;
+}
+
+.badge-success {
+  @apply badge bg-success-100 text-success-700 dark:bg-success-900 dark:text-success-100;
+}
+
+.badge-error {
+  @apply badge bg-error-100 text-error-700 dark:bg-error-900 dark:text-error-100;
+}
+
+.badge-warning {
+  @apply badge bg-warning-100 text-warning-700 dark:bg-warning-900 dark:text-warning-100;
+}
+
+/* Seções */
+.section {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+.section-sm {
+  @apply py-8 md:py-12 lg:py-16;
+}
+
+.section-lg {
+  @apply py-20 md:py-32 lg:py-40;
+}
+
+/* Containers */
+.container-sm {
+  @apply max-w-2xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.container-md {
+  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.container-lg {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.container-xl {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Grids */
+.grid-auto {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.grid-3 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.grid-4 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+/* Flexbox */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex items-center justify-between;
+}
+
+.flex-col-center {
+  @apply flex flex-col items-center justify-center;
+}
+
+/* Texto */
+.text-gradient {
+  @apply bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent;
+}
+
+.text-muted {
+  @apply text-neutral-500 dark:text-neutral-400;
+}
+
+/* Divisores */
+.divider {
+  @apply border-t border-neutral-200 dark:border-neutral-700;
+}
+
+.divider-vertical {
+  @apply border-l border-neutral-200 dark:border-neutral-700;
+}
+
+/* Utilitários de Responsividade */
+@media (max-width: 640px) {
+  .hide-mobile {
+    @apply hidden;
+  }
+}
+
+@media (min-width: 641px) {
+  .show-mobile {
+    @apply hidden;
+  }
+}
+
+/* Modo Escuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-neutral-900 text-neutral-50;
+  }
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
