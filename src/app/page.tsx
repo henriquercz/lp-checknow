@@ -8,11 +8,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, ArrowRight, Shield } from "lucide-react";
+import { Download, ArrowRight, Shield, Zap, Brain, Lock, TrendingUp, Clock } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
+import { FeatureCard } from "@/components/FeatureCard";
 import { Footer } from "@/components/Footer";
 import { FEATURES, STEPS, PLANS, TESTIMONIALS, FAQ } from "@/lib/constants";
 
@@ -154,27 +155,22 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {FEATURES.map((feature, index) => (
-              <motion.div
-                key={feature.id}
-                variants={itemVariants}
-                className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
-                  <Shield size={24} className="text-primary-500" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-neutral-600 dark:text-neutral-400">{feature.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {FEATURES.slice(0, 6).map((feature, index) => {
+              const icons = [Shield, Zap, Brain, Lock, TrendingUp, Clock];
+              const IconComponent = icons[index % icons.length];
+              
+              return (
+                <FeatureCard
+                  key={feature.id}
+                  icon={IconComponent}
+                  title={feature.title}
+                  description={feature.description}
+                  delay={index * 0.1}
+                />
+              );
+            })}
+          </div>
         </Container>
       </section>
 
