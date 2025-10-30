@@ -24,12 +24,10 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ 
   name, 
-  role, 
-  avatar, 
+  role,
   content, 
   rating, 
-  delay = 0,
-  className 
+  delay = 0 
 }: TestimonialCardProps) {
   return (
     <motion.div
@@ -45,8 +43,7 @@ export function TestimonialCard({
         "border border-neutral-200 dark:border-neutral-700",
         "shadow-lg hover:shadow-2xl",
         "transition-all duration-300",
-        "overflow-hidden",
-        className
+        "overflow-hidden"
       )}
     >
       {/* Background Gradient */}
@@ -89,7 +86,7 @@ export function TestimonialCard({
 
         {/* Testimonial Text */}
         <p className="text-neutral-700 dark:text-neutral-300 mb-6 leading-relaxed italic">
-          "{content}"
+          &ldquo;{content}&rdquo;
         </p>
 
         {/* Author Info */}

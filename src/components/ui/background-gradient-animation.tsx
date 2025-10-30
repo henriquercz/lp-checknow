@@ -85,11 +85,17 @@ export const BackgroundGradientAnimation = ({
       if (!interactiveRef.current) {
         return;
       }
-      setCurX((prevX) => prevX + (tgX - prevX) / 20);
-      setCurY((prevY) => prevY + (tgY - prevY) / 20);
-      interactiveRef.current.style.transform = `translate(${Math.round(
-        curX
-      )}px, ${Math.round(curY)}px)`;
+      setCurX((prevX) => {
+        const newX = prevX + (tgX - prevX) / 20;
+        setCurY((prevY) => {
+          const newY = prevY + (tgY - prevY) / 20;
+          if (interactiveRef.current) {
+            interactiveRef.current.style.transform = `translate(${Math.round(newX)}px, ${Math.round(newY)}px)`;
+          }
+          return newY;
+        });
+        return newX;
+      });
     }
 
     const animationFrame = requestAnimationFrame(move);
