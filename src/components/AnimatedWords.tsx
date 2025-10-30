@@ -32,12 +32,12 @@ export function AnimatedWords({ words, className = "" }: AnimatedWordsProps) {
   }, [index, words]);
 
   return (
-    <span className={`relative inline-flex justify-center overflow-visible h-[1.2em] align-bottom ${className}`}>
+    <span className={`relative inline-block overflow-hidden align-baseline ${className}`}>
       <span className="invisible">{words[0]}</span>
       {words.map((word, idx) => (
         <motion.span
           key={idx}
-          className="absolute font-bold left-0 right-0 text-center text-primary-500 dark:text-success-500"
+          className="absolute font-bold left-0 right-0 top-0 text-primary-500 dark:text-success-500"
           initial={{ opacity: 0, y: "100%" }}
           transition={{ type: "spring", stiffness: 80, damping: 20 }}
           animate={

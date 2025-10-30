@@ -1,43 +1,42 @@
 /**
- * Componente SplineRobot - Robô 3D Interativo Checkito
+ * Componente SplineRobot - Checkito Animado com Logo CheckNow
  * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
- * 
- * INSTRUÇÕES PARA CUSTOMIZAR NO SPLINE:
- * 1. Acesse: https://spline.design/
- * 2. Crie um novo projeto
- * 3. Adicione um robô 3D (library > characters > robot)
- * 4. Customize:
- *    - Corpo: mais gordo e baixinho (scale Y: 0.7, scale X/Z: 1.3)
- *    - Cor primária: #2563EB (azul CheckNow)
- *    - Cor secundária: #22C55E (verde CheckNow)
- *    - Adicione animação: "Look at cursor" no script
- * 5. Export > Get embed code
- * 6. Copie a URL do scene.splinecode
- * 7. Cole na variável CHECKITO_SCENE_URL abaixo
  */
 
 "use client";
 
-import React, { Suspense } from "react";
-import Spline from "@splinetool/react-spline";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface SplineRobotProps {
   className?: string;
 }
 
-// URL da cena 3D do robô do exemplo do 21st.dev
-// Este robô é interativo e segue o mouse
-const CHECKITO_SCENE_URL = "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
-
 export function SplineRobot({ className = "" }: SplineRobotProps) {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const checkitoImages = [
+    "/images/checkito/checkito_tela1.png",
+    "/images/checkito/checkito_tela2.png",
+    "/images/checkito/checkito_tela3.png",
+    "/images/checkito/checkito_tela4.png",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % checkitoImages.length);
+    }, 3500); // Troca a cada 3.5 segundos (mais lento)
+    return () => clearInterval(interval);
+  }, [checkitoImages.length]);
+
   return (
-    <div className={`relative w-full h-full ${className}`}>
-      {/* Background Glow */}
+    <div className={`relative w-full h-full flex items-center justify-center ${className}`}>
+      {/* Background Glow Animado */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-success-500/10 to-primary-500/20 rounded-full blur-3xl -z-10"
+        className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-success-500/10 to-primary-500/20 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.6, 0.3],
@@ -49,23 +48,81 @@ export function SplineRobot({ className = "" }: SplineRobotProps) {
         }}
       />
 
-      {/* Robô 3D Spline */}
-      <Suspense
-        fallback={
-          <div className="w-full h-full flex items-center justify-center">
+      {/* Container Central */}
+      <div className="relative z-10 flex flex-col items-center">
+        {/* Logo CheckNow no topo */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-8"
+        >
+          <Image
+            src="/images/logo-com-nome-e-sem-fundo.png"
+            alt="CheckNow"
+            width={200}
+            height={60}
+            className="drop-shadow-2xl"
+            priority
+          />
+        </motion.div>
+
+        {/* Checkito Animado com Fade */}
+        <motion.div
+          animate={{ y: [0, -15, 0] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="relative w-[450px] h-[450px]"
+        >
+          {checkitoImages.map((image, idx) => (
             <motion.div
-              className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-            />
-          </div>
-        }
-      >
-        <Spline
-          scene={CHECKITO_SCENE_URL}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </Suspense>
+              key={idx}
+              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: currentImage === idx ? 1 : 0,
+                scale: currentImage === idx ? 1 : 0.95,
+              }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+            >
+              <Image
+                src={image}
+                alt="Checkito - Mascote do CheckNow"
+                width={450}
+                height={450}
+                className="drop-shadow-2xl"
+                priority={idx === 0}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Partículas Flutuantes */}
+        {Array.from({ length: 8 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-success-500 rounded-full"
+            style={{
+              top: `${20 + i * 10}%`,
+              left: `${10 + i * 12}%`,
+            }}
+            animate={{
+              y: [0, -25, 0],
+              opacity: [0, 1, 0],
+              scale: [0, 1.2, 0],
+            }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              delay: i * 0.4,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }
