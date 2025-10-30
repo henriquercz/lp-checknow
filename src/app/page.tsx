@@ -15,6 +15,7 @@ import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { SplineRobot } from "@/components/SplineRobot";
 import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
@@ -189,15 +190,24 @@ export default function Home() {
       </section>
 
       {/* App Preview with Container Scroll Animation */}
-      <section className="relative py-4 bg-gradient-to-b from-neutral-100 via-neutral-200 to-neutral-100 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900 overflow-hidden">
-        {/* Gradientes de fundo azul e verde do CheckNow */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-10 left-0 w-[600px] h-[600px] bg-gradient-to-br from-primary-400/40 to-primary-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-success-400/40 to-success-500/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary-300/20 via-transparent to-success-300/20 blur-3xl" />
-        </div>
+      <section className="relative py-4 overflow-hidden">
+        <BackgroundGradientAnimation
+          gradientBackgroundStart="rgb(255, 255, 255)"
+          gradientBackgroundEnd="rgb(249, 250, 251)"
+          firstColor="59, 130, 246"
+          secondColor="34, 197, 94"
+          thirdColor="96, 165, 250"
+          fourthColor="52, 211, 153"
+          fifthColor="191, 219, 254"
+          pointerColor="59, 130, 246"
+          size="80%"
+          blendingValue="normal"
+          interactive={true}
+          containerClassName="absolute inset-0"
+        />
 
-        <ContainerScroll
+        <div className="relative z-10">
+          <ContainerScroll
           titleComponent={
             <div className="text-center">
               <h2 className="text-2xl md:text-4xl font-bold mb-2">
@@ -235,6 +245,7 @@ export default function Home() {
             </div>
           </div>
         </ContainerScroll>
+        </div>
       </section>
 
       {/* How It Works Section */}

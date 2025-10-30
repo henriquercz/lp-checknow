@@ -111,17 +111,22 @@ const config: Config = {
   			'7xl': '72px'
   		},
   		animation: {
-  			'fade-in': 'fadeIn 0.5s ease-in-out',
-  			'slide-up': 'slideUp 0.5s ease-out',
-  			'slide-down': 'slideDown 0.5s ease-out',
-  			'slide-left': 'slideLeft 0.5s ease-out',
-  			'slide-right': 'slideRight 0.5s ease-out',
-  			'bounce-slow': 'bounce 3s infinite',
-  			'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-  			'spin-slow': 'spin 3s linear infinite',
-  			'float': 'float 3s ease-in-out infinite',
-  			'glow': 'glow 2s ease-in-out infinite'
-  		},
+			'fade-in': 'fadeIn 0.5s ease-in-out',
+			'slide-up': 'slideUp 0.5s ease-out',
+			'slide-down': 'slideDown 0.5s ease-out',
+			'slide-left': 'slideLeft 0.5s ease-out',
+			'slide-right': 'slideRight 0.5s ease-out',
+			'bounce-slow': 'bounce 3s infinite',
+			'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+			'spin-slow': 'spin 3s linear infinite',
+			'float': 'float 3s ease-in-out infinite',
+			'glow': 'glow 2s ease-in-out infinite',
+			'first': 'moveVertical 30s ease infinite',
+			'second': 'moveInCircle 20s reverse infinite',
+			'third': 'moveInCircle 40s linear infinite',
+			'fourth': 'moveHorizontal 40s ease infinite',
+			'fifth': 'moveInCircle 20s ease infinite'
+		},
   		keyframes: {
   			fadeIn: {
   				'0%': {
@@ -186,8 +191,41 @@ const config: Config = {
   				'50%': {
   					boxShadow: '0 0 40px rgba(37, 99, 235, 0.8)'
   				}
-  			}
-  		},
+  			},
+  			moveHorizontal: {
+				'0%': {
+					transform: 'translateX(-50%) translateY(-10%)'
+				},
+				'50%': {
+					transform: 'translateX(50%) translateY(10%)'
+				},
+				'100%': {
+					transform: 'translateX(-50%) translateY(-10%)'
+				}
+			},
+			moveInCircle: {
+				'0%': {
+					transform: 'rotate(0deg)'
+				},
+				'50%': {
+					transform: 'rotate(180deg)'
+				},
+				'100%': {
+					transform: 'rotate(360deg)'
+				}
+			},
+			moveVertical: {
+				'0%': {
+					transform: 'translateY(-50%)'
+				},
+				'50%': {
+					transform: 'translateY(50%)'
+				},
+				'100%': {
+					transform: 'translateY(-50%)'
+				}
+			}
+		},
   		boxShadow: {
   			glow: '0 0 20px rgba(37, 99, 235, 0.5)',
   			'glow-lg': '0 0 40px rgba(37, 99, 235, 0.8)'
