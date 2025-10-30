@@ -65,7 +65,7 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
         className
       )}
     >
-      <div className="flex items-center gap-2 bg-white/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 backdrop-blur-lg py-2 px-2 rounded-full shadow-lg">
+      <div className="flex items-center gap-1 bg-white/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 backdrop-blur-lg py-1.5 px-1.5 rounded-full shadow-lg">
         {/* Logo */}
         <div className="flex items-center gap-2 px-4">
           <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
@@ -125,7 +125,11 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
         <div className="w-px h-8 bg-neutral-200 dark:bg-neutral-700" />
 
         {/* CTA Button */}
-        <Button size="sm" icon={<Download size={16} />} className="ml-2">
+        <Button 
+          size="sm" 
+          icon={<Download size={16} />} 
+          className="ml-1 rounded-full px-4 py-2"
+        >
           <span className="hidden sm:inline">Baixar</span>
         </Button>
       </div>
