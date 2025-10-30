@@ -52,13 +52,17 @@ export function InteractiveHoverButton({
 
       {/* Partículas de fundo */}
       <span className="absolute inset-0 overflow-hidden rounded-full">
-        {Array.from({ length: 3 }).map((_, i) => (
+        {[
+          { top: "20%", left: "30%" },
+          { top: "60%", left: "70%" },
+          { top: "40%", left: "50%" },
+        ].map((position, i) => (
           <motion.span
             key={i}
             className="absolute h-2 w-2 rounded-full bg-white/40"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
+              top: position.top,
+              left: position.left,
             }}
             animate={{
               y: [0, -20, 0],
