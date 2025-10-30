@@ -150,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="section bg-neutral-50 dark:bg-neutral-800/50">
+      <section id="features" className="section bg-gradient-to-b from-primary-50/30 to-white dark:from-neutral-800 dark:to-neutral-900">
         <Container size="lg">
           <motion.div
             className="text-center mb-16"
@@ -249,7 +249,7 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="section">
+      <section id="how-it-works" className="section bg-white dark:bg-neutral-900">
         <Container size="lg">
           <motion.div
             className="text-center mb-16"
@@ -285,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section bg-neutral-50 dark:bg-neutral-800/50">
+      <section className="section bg-gradient-to-b from-success-50/20 to-white dark:from-neutral-800/50 dark:to-neutral-900">
         <Container size="lg">
           <motion.div
             className="text-center mb-16"
@@ -322,7 +322,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="section">
+      <section id="pricing" className="section bg-white dark:bg-neutral-900">
         <Container size="lg">
           <motion.div
             className="text-center mb-16"
@@ -359,7 +359,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="section bg-neutral-50 dark:bg-neutral-800/50">
+      <section id="faq" className="section bg-gradient-to-b from-primary-50/20 to-white dark:from-neutral-800 dark:to-neutral-900">
         <Container size="md">
           <motion.div
             className="text-center mb-16"
