@@ -34,13 +34,10 @@ export const StructuredData = () => {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer support",
-      "email": "contato@checknow.app"
+      "url": "https://instagram.com/checknow.br"
     },
     "sameAs": [
-      "https://twitter.com/checknowapp",
-      "https://facebook.com/checknowapp",
-      "https://linkedin.com/company/checknowapp",
-      "https://instagram.com/checknowapp"
+      "https://instagram.com/checknow.br"
     ]
   };
 

@@ -8,9 +8,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Container } from "./Container";
-import { FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/constants";
+import { FOOTER_LINKS } from "@/lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -122,31 +122,27 @@ export function Footer() {
               © {currentYear} CheckNow. Todos os direitos reservados.
             </motion.p>
 
-            {/* Social Links */}
+            {/* Instagram Link */}
             <motion.div
-              className="flex items-center gap-4 mt-6 md:mt-0"
+              className="flex items-center gap-3 mt-6 md:mt-0"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              {SOCIAL_LINKS.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-neutral-800 hover:bg-primary-500 flex items-center justify-center transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  title={social.name}
-                >
-                  {social.icon === "Github" && <Github size={20} />}
-                  {social.icon === "Twitter" && <Twitter size={20} />}
-                  {social.icon === "Instagram" && <Instagram size={20} />}
-                  {social.icon === "Linkedin" && <Linkedin size={20} />}
-                </motion.a>
-              ))}
+              <span className="text-neutral-400 text-sm">Siga-nos:</span>
+              <motion.a
+                href="https://instagram.com/checknow.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:shadow-lg hover:shadow-pink-500/50 transition-all"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                title="Instagram @checknow.br"
+              >
+                <Instagram size={20} />
+                <span className="font-medium">@checknow.br</span>
+              </motion.a>
             </motion.div>
           </div>
         </div>

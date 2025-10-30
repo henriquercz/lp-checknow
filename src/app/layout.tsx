@@ -72,7 +72,6 @@ export const metadata: Metadata = {
     description:
       "Combata a desinformação com inteligência artificial. Verifique notícias em segundos com o CheckNow.",
     images: ["/images/og-image.png"],
-    creator: "@checknowapp",
   },
   robots: {
     index: true,

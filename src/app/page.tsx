@@ -8,7 +8,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, ArrowRight, Shield, Zap, Brain, Lock, TrendingUp, Clock, Sparkles } from "lucide-react";
+import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
@@ -117,10 +117,17 @@ export default function Home() {
                 <Download size={20} />
                 <span>Baixar Agora</span>
               </InteractiveHoverButton>
-              <InteractiveHoverButton className="bg-gradient-to-r from-success-500 to-success-600 hover:from-success-600 hover:to-success-700 hover:shadow-success-500/50">
-                <span>Saiba Mais</span>
-                <ArrowRight size={20} />
-              </InteractiveHoverButton>
+              <a 
+                href="https://instagram.com/checknow.br" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <InteractiveHoverButton className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 hover:shadow-pink-500/50">
+                  <Instagram size={20} />
+                  <span>Siga no Instagram</span>
+                </InteractiveHoverButton>
+              </a>
             </motion.div>
 
               {/* Stats */}
