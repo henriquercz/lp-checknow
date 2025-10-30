@@ -14,6 +14,7 @@ import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { FeatureCard } from "@/components/FeatureCard";
+import { StepCard } from "@/components/StepCard";
 import { Footer } from "@/components/Footer";
 import { FEATURES, STEPS, PLANS, TESTIMONIALS, FAQ } from "@/lib/constants";
 
@@ -195,28 +196,18 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="max-w-3xl mx-auto">
             {STEPS.map((step, index) => (
-              <motion.div key={step.id} variants={itemVariants} className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold text-2xl mb-4">
-                    {step.id}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-neutral-600 dark:text-neutral-400">{step.description}</p>
-                </div>
-                {index < STEPS.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-1 bg-gradient-to-r from-primary-500 to-transparent" />
-                )}
-              </motion.div>
+              <StepCard
+                key={step.id}
+                number={step.id}
+                title={step.title}
+                description={step.description}
+                delay={index * 0.2}
+                isLast={index === STEPS.length - 1}
+              />
             ))}
-          </motion.div>
+          </div>
         </Container>
       </section>
 
