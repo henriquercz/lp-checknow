@@ -45,13 +45,13 @@ export const FEATURES = [
   {
     id: 1,
     title: "Verificação Inteligente",
-    description: "Análise com IA avançada (Google Gemini) para detectar fake news em segundos",
+    description: "Análise com IA avançada (Checkito) para detectar fake news em segundos",
     icon: "Shield",
   },
   {
     id: 2,
     title: "Múltiplos Formatos",
-    description: "Verifique texto, links ou imagens de notícias com um único toque",
+    description: "Verifique textos e links de notícias com um único toque",
     icon: "Link",
   },
   {
@@ -85,7 +85,7 @@ export const STEPS = [
   {
     id: 1,
     title: "Cole a Notícia",
-    description: "Insira o texto, link ou imagem da notícia que deseja verificar",
+    description: "Insira o texto ou link da notícia que deseja verificar",
   },
   {
     id: 2,
@@ -100,7 +100,7 @@ export const STEPS = [
   {
     id: 4,
     title: "Receba Resultado",
-    description: "Resultado detalhado com score de confiança e fontes",
+    description: "Resultado detalhado com veredito, explicação e fontes",
   },
 ];
 
@@ -113,7 +113,7 @@ export const PLANS = [
     period: "/mês",
     description: "Perfeito para começar",
     features: [
-      "3 verificações por dia",
+      "3 verificações por mês",
       "Acesso ao histórico",
       "Central de notícias",
       "Suporte por email",
@@ -124,7 +124,7 @@ export const PLANS = [
   {
     id: 2,
     name: "Premium",
-    price: "R$ 9,99",
+    price: "R$ 19,99",
     period: "/mês",
     description: "Para usuários frequentes",
     features: [
@@ -174,13 +174,13 @@ export const FAQ = [
     id: 1,
     question: "Como o CheckNow detecta fake news?",
     answer:
-      "Usamos Google Gemini AI para análise semântica avançada, combinada com busca web em fontes confiáveis. O sistema compara informações e gera um score de confiança baseado em evidências.",
+      "Usamos o Checkito, nossa IA para análise semântica avançada, combinada com busca web em fontes confiáveis. O sistema compara informações e gera um veredito baseado em evidências.",
   },
   {
     id: 2,
     question: "Quantas verificações posso fazer por dia?",
     answer:
-      "Usuários gratuitos têm 3 verificações por dia. Usuários premium têm verificações ilimitadas. O limite se reseta todos os dias às 00:00 (horário de Brasília).",
+      "Usuários gratuitos têm 3 verificações por mês, sendo possível gastar as 3 no mesmo dia. Usuários premium têm verificações ilimitadas. O limite se reseta todos os meses no dia 1.",
   },
   {
     id: 3,
@@ -204,7 +204,7 @@ export const FAQ = [
     id: 6,
     question: "Qual é a precisão do CheckNow?",
     answer:
-      "Nossa IA tem taxa de acurácia de ~85% em detecção de fake news. Para máxima precisão, recomendamos sempre verificar múltiplas fontes.",
+      "Nosso APP tem taxa de acurácia de ~99% em detecção de fake news. Pois juntamos IA e busca web em fontes confiáveis.",
   },
 ];
 
