@@ -37,7 +37,7 @@ export function AnimatedWords({ words, className = "" }: AnimatedWordsProps) {
       {words.map((word, idx) => (
         <motion.span
           key={idx}
-          className="absolute font-bold left-0 right-0 text-center text-primary-500 dark:text-white"
+          className="absolute font-bold left-0 right-0 text-center text-primary-500 dark:text-success-500"
           initial={{ opacity: 0, y: "100%" }}
           transition={{ type: "spring", stiffness: 80, damping: 20 }}
           animate={

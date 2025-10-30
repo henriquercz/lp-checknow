@@ -34,7 +34,7 @@ const navItems: NavItem[] = [
 export function TubelightNavbar({ className }: TubelightNavbarProps) {
   const [activeTab, setActiveTab] = useState(navItems[0].name);
   const [isMobile, setIsMobile] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,9 +47,22 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
   }, []);
 
   useEffect(() => {
-    // Detecta tema inicial
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    setIsDark(isDarkMode);
+    // Detecta tema inicial do DOM
+    const checkTheme = () => {
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      setIsDark(isDarkMode);
+    };
+    
+    checkTheme();
+    
+    // Observer para detectar mudanças no tema
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    
+    return () => observer.disconnect();
   }, []);
 
   const toggleTheme = () => {
