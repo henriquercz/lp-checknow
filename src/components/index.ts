@@ -10,6 +10,7 @@ export { Container } from "./Container";
 export { Navbar } from "./Navbar";
 export { TubelightNavbar } from "./TubelightNavbar";
 export { AnimatedWords } from "./AnimatedWords";
+export { ContainerScroll } from "./ContainerScroll";
 export { FeatureCard } from "./FeatureCard";
 export { StepCard } from "./StepCard";
 export { TestimonialCard } from "./TestimonialCard";

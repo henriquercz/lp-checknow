@@ -15,6 +15,7 @@ import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
 import { SplineRobot } from "@/components/SplineRobot";
+import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
@@ -191,6 +192,55 @@ export default function Home() {
             })}
           </div>
         </Container>
+      </section>
+
+      {/* App Preview with Container Scroll Animation */}
+      <section className="relative section bg-neutral-100 dark:bg-neutral-900 overflow-hidden">
+        {/* Gradientes de fundo azul e verde */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-success-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 rounded-full blur-3xl" />
+        </div>
+
+        <ContainerScroll
+          titleComponent={
+            <div className="text-center">
+              <h2 className="text-4xl md:text-6xl font-bold mb-4">
+                Experiência Intuitiva e <span className="text-primary-500">Poderosa</span>
+              </h2>
+              <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+                Verifique notícias com apenas alguns toques. Interface moderna e amigável.
+              </p>
+            </div>
+          }
+        >
+          <div className="w-full h-full overflow-y-auto scrollbar-hide">
+            <div className="space-y-4 p-4">
+              {/* Telas do app em proporção 9:16 */}
+              <img 
+                src="/images/checkito/checkito_tela1.png" 
+                alt="CheckNow App - Tela 1"
+                className="w-full h-auto rounded-xl"
+              />
+              <img 
+                src="/images/checkito/checkito_tela2.png" 
+                alt="CheckNow App - Tela 2"
+                className="w-full h-auto rounded-xl"
+              />
+              <img 
+                src="/images/checkito/checkito_tela3.png" 
+                alt="CheckNow App - Tela 3"
+                className="w-full h-auto rounded-xl"
+              />
+              <img 
+                src="/images/checkito/checkito_tela4.png" 
+                alt="CheckNow App - Tela 4"
+                className="w-full h-auto rounded-xl"
+              />
+            </div>
+          </div>
+        </ContainerScroll>
       </section>
 
       {/* How It Works Section */}
