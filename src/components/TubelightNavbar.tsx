@@ -83,11 +83,14 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
     setActiveTab(item.name);
     
     // Scroll suave para a seção
-    if (item.url.startsWith("#")) {
+    if (item.url.startsWith("#") && item.url.length > 1) {
       const element = document.querySelector(item.url);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
+    } else if (item.url === "#") {
+      // Se for apenas "#", volta para o topo
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
