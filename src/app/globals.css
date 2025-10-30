@@ -340,12 +340,7 @@ select:focus {
   }
 }
 
-/* Modo Escuro */
-@media (prefers-color-scheme: dark) {
-  body {
-    @apply bg-neutral-900 text-neutral-50;
-  }
-}
+/* Modo Escuro - removido para permitir toggle manual */
 
 /* Acessibilidade */
 @media (prefers-reduced-motion: reduce) {
