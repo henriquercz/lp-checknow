@@ -226,20 +226,20 @@ const config: Config = {
 				}
 			}
 		},
-  		boxShadow: {
-  			glow: '0 0 20px rgba(37, 99, 235, 0.5)',
-  			'glow-lg': '0 0 40px rgba(37, 99, 235, 0.8)'
-  		},
-  		backgroundImage: {
-  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+		boxShadow: {
+			glow: '0 0 20px rgba(37, 99, 235, 0.5)',
+			'glow-lg': '0 0 40px rgba(37, 99, 235, 0.8)'
+		},
+		backgroundImage: {
+			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+		},
+		borderRadius: {
+			lg: 'var(--radius)',
+			md: 'calc(var(--radius) - 2px)',
+			sm: 'calc(var(--radius) - 4px)'
+		}
+	}
   },
   plugins: [require("tailwindcss-animate")],
 };

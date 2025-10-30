@@ -5,9 +5,11 @@
  * Versão: 1.0.0
  */
 
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 /* Variáveis CSS */
 :root {
@@ -341,6 +343,15 @@ select:focus {
 }
 
 /* Modo Escuro - removido para permitir toggle manual */
+
+/* Perspective para efeitos 3D */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
 
 /* Acessibilidade */
 @media (prefers-reduced-motion: reduce) {

@@ -20,11 +20,11 @@ import { SplineRobot } from "@/components/SplineRobot";
 import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
-import { TestimonialCard } from "@/components/TestimonialCard";
+import { VisionMissionValues } from "@/components/VisionMissionValues";
 import { PricingCard } from "@/components/PricingCard";
 import { FAQItem } from "@/components/FAQItem";
 import { Footer } from "@/components/Footer";
-import { FEATURES, STEPS, PLANS, TESTIMONIALS, FAQ } from "@/lib/constants";
+import { FEATURES, STEPS, PLANS, FAQ } from "@/lib/constants";
 
 // Variantes de animação
 const containerVariants = {
@@ -284,40 +284,10 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="section bg-gradient-to-b from-success-50/20 to-white dark:from-neutral-800/50 dark:to-neutral-900">
+      {/* Vision Mission Values Section */}
+      <section className="section bg-gradient-to-b from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-800">
         <Container size="lg">
-          <motion.div
-            className="text-center mb-16"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-4">
-              O Que Dizem Sobre Nós
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto"
-            >
-              Confira os depoimentos de nossos usuários satisfeitos
-            </motion.p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {TESTIMONIALS.map((testimonial, index) => (
-              <TestimonialCard
-                key={testimonial.id}
-                name={testimonial.name}
-                role={testimonial.role}
-                avatar={testimonial.avatar}
-                content={testimonial.content}
-                rating={testimonial.rating}
-                delay={index * 0.2}
-              />
-            ))}
-          </div>
+          <VisionMissionValues />
         </Container>
       </section>
 
