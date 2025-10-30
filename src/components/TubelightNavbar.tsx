@@ -10,7 +10,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { LucideIcon, Home, Shield, DollarSign, HelpCircle, Download } from "lucide-react";
+import { LucideIcon, Home, Shield, DollarSign, HelpCircle, Download, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 
@@ -34,6 +34,7 @@ const navItems: NavItem[] = [
 export function TubelightNavbar({ className }: TubelightNavbarProps) {
   const [activeTab, setActiveTab] = useState(navItems[0].name);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,6 +45,25 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    // Detecta tema inicial
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    setIsDark(isDarkMode);
+  }, []);
+
+  const toggleTheme = () => {
+    const html = document.documentElement;
+    if (html.classList.contains('dark')) {
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDark(false);
+    } else {
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDark(true);
+    }
+  };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
     e.preventDefault();
@@ -123,6 +143,19 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
 
         {/* Divider */}
         <div className="w-px h-8 bg-neutral-200 dark:bg-neutral-700" />
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+          aria-label="Toggle theme"
+        >
+          {isDark ? (
+            <Sun size={18} className="text-yellow-500" />
+          ) : (
+            <Moon size={18} className="text-neutral-600" />
+          )}
+        </button>
 
         {/* CTA Button */}
         <Button 
