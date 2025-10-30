@@ -28,9 +28,11 @@ export function Footer() {
               viewport={{ once: true }}
             >
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">✓</span>
-                </div>
+                <img 
+                  src="/images/logo-sem-fundo.png" 
+                  alt="CheckNow Logo" 
+                  className="w-10 h-10 object-contain"
+                />
                 <span className="font-bold text-lg">CheckNow</span>
               </div>
               <p className="text-neutral-400 text-sm">

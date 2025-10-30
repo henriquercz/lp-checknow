@@ -100,12 +100,14 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
     >
       <div className="flex items-center gap-1 bg-white/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 backdrop-blur-lg py-1.5 px-1.5 rounded-full shadow-lg">
         {/* Logo */}
-        <div className="flex items-center gap-2 px-4">
-          <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">✓</span>
-          </div>
+        <a href="#" className="flex items-center gap-2 px-4 hover:opacity-80 transition-opacity">
+          <img 
+            src="/images/logo-sem-fundo.png" 
+            alt="CheckNow Logo" 
+            className="w-8 h-8 object-contain"
+          />
           <span className="font-bold text-base hidden sm:inline">CheckNow</span>
-        </div>
+        </a>
 
         {/* Divider */}
         <div className="w-px h-8 bg-neutral-200 dark:bg-neutral-700" />
