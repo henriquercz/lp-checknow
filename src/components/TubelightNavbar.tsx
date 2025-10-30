@@ -46,6 +46,59 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Detecta a seção ativa baseado no scroll usando Intersection Observer
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px', // Considera seção ativa quando está no meio da viewport
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute('id');
+          
+          // Encontra o item do nav correspondente
+          const navItem = navItems.find(item => item.url === `#${sectionId}`);
+          
+          if (navItem) {
+            setActiveTab(navItem.name);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observa todas as seções
+    const sections = navItems
+      .filter(item => item.url.startsWith("#") && item.url.length > 1)
+      .map(item => document.querySelector(item.url))
+      .filter(element => element !== null);
+
+    sections.forEach(section => {
+      if (section) observer.observe(section);
+    });
+
+    // Detecta se está no topo ao fazer scroll
+    const handleScroll = () => {
+      if (window.scrollY < 100) {
+        setActiveTab(navItems[0].name);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      sections.forEach(section => {
+        if (section) observer.unobserve(section);
+      });
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     
     // Detecta o tema inicial do localStorage ou sistema

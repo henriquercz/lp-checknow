@@ -23,6 +23,7 @@
 /* Estilos Base */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset para o navbar fixo */
 }
 
 body {
