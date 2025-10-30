@@ -41,9 +41,8 @@ export const BackgroundGradientAnimation = ({
   containerClassName?: string;
 }) => {
   const interactiveRef = useRef<HTMLDivElement>(null);
-
-  const [curX, setCurX] = useState(0);
-  const [curY, setCurY] = useState(0);
+  const curX = useRef(0);
+  const curY = useRef(0);
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
   useEffect(() => {
@@ -85,17 +84,9 @@ export const BackgroundGradientAnimation = ({
       if (!interactiveRef.current) {
         return;
       }
-      setCurX((prevX) => {
-        const newX = prevX + (tgX - prevX) / 20;
-        setCurY((prevY) => {
-          const newY = prevY + (tgY - prevY) / 20;
-          if (interactiveRef.current) {
-            interactiveRef.current.style.transform = `translate(${Math.round(newX)}px, ${Math.round(newY)}px)`;
-          }
-          return newY;
-        });
-        return newX;
-      });
+      curX.current = curX.current + (tgX - curX.current) / 20;
+      curY.current = curY.current + (tgY - curY.current) / 20;
+      interactiveRef.current.style.transform = `translate(${Math.round(curX.current)}px, ${Math.round(curY.current)}px)`;
     }
 
     const animationFrame = requestAnimationFrame(move);
