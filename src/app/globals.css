@@ -238,15 +238,15 @@ select:focus {
 }
 
 .badge-success {
-  @apply badge bg-success-100 text-success-700 dark:bg-success-900 dark:text-success-100;
+  @apply badge bg-success-50 text-success-500 dark:bg-success-500 dark:bg-opacity-20 dark:text-success-500;
 }
 
 .badge-error {
-  @apply badge bg-error-100 text-error-700 dark:bg-error-900 dark:text-error-100;
+  @apply badge bg-error-50 text-error-500 dark:bg-error-500 dark:bg-opacity-20 dark:text-error-500;
 }
 
 .badge-warning {
-  @apply badge bg-warning-100 text-warning-700 dark:bg-warning-900 dark:text-warning-100;
+  @apply badge bg-warning-50 text-warning-500 dark:bg-warning-500 dark:bg-opacity-20 dark:text-warning-500;
 }
 
 /* Seções */
