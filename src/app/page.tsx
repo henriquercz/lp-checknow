@@ -195,48 +195,48 @@ export default function Home() {
       </section>
 
       {/* App Preview with Container Scroll Animation */}
-      <section className="relative section bg-neutral-100 dark:bg-neutral-900 overflow-hidden">
-        {/* Gradientes de fundo azul e verde */}
+      <section className="relative py-4 bg-gradient-to-b from-neutral-100 via-neutral-200 to-neutral-100 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900 overflow-hidden">
+        {/* Gradientes de fundo azul e verde do CheckNow */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-success-500/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-10 left-0 w-[600px] h-[600px] bg-gradient-to-br from-primary-400/40 to-primary-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-success-400/40 to-success-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary-300/20 via-transparent to-success-300/20 blur-3xl" />
         </div>
 
         <ContainerScroll
           titleComponent={
             <div className="text-center">
-              <h2 className="text-4xl md:text-6xl font-bold mb-4">
+              <h2 className="text-2xl md:text-4xl font-bold mb-2">
                 Experiência Intuitiva e <span className="text-primary-500">Poderosa</span>
               </h2>
-              <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                Verifique notícias com apenas alguns toques. Interface moderna e amigável.
+              <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
+                Verifique notícias com apenas alguns toques.
               </p>
             </div>
           }
         >
           <div className="w-full h-full overflow-y-auto scrollbar-hide">
-            <div className="space-y-4 p-4">
+            <div className="space-y-2 p-2">
               {/* Telas do app em proporção 9:16 */}
               <img 
                 src="/images/checkito/checkito_tela1.png" 
                 alt="CheckNow App - Tela 1"
-                className="w-full h-auto rounded-xl"
+                className="w-full h-auto rounded-lg"
               />
               <img 
                 src="/images/checkito/checkito_tela2.png" 
                 alt="CheckNow App - Tela 2"
-                className="w-full h-auto rounded-xl"
+                className="w-full h-auto rounded-lg"
               />
               <img 
                 src="/images/checkito/checkito_tela3.png" 
                 alt="CheckNow App - Tela 3"
-                className="w-full h-auto rounded-xl"
+                className="w-full h-auto rounded-lg"
               />
               <img 
                 src="/images/checkito/checkito_tela4.png" 
                 alt="CheckNow App - Tela 4"
-                className="w-full h-auto rounded-xl"
+                className="w-full h-auto rounded-lg"
               />
             </div>
           </div>

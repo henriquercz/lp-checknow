@@ -19,20 +19,20 @@ export function ContainerScroll({ titleComponent, children }: ContainerScrollPro
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"],
+    offset: ["start center", "end end"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1.1]);
-  const rotate = useTransform(scrollYProgress, [0, 0.5, 1], [20, 0, -10]);
-  const translateY = useTransform(scrollYProgress, [0, 0.5, 1], [200, 0, -200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [35, 0]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1, 1]);
 
   return (
     <div
       ref={containerRef}
-      className="relative py-20 md:py-40 overflow-hidden"
+      className="relative py-4 overflow-hidden"
     >
-      <div className="relative z-20 mb-20">
+      <div className="relative z-20 mb-6">
         {titleComponent}
       </div>
 
@@ -43,19 +43,19 @@ export function ContainerScroll({ titleComponent, children }: ContainerScrollPro
           translateY,
           opacity,
         }}
-        className="relative mx-auto max-w-md perspective-1000"
+        className="relative mx-auto max-w-xs perspective-1000"
       >
         <div className="relative">
           {/* Moldura do Celular - Proporção 9:16 */}
-          <div className="relative bg-neutral-900 rounded-[3rem] p-4 shadow-2xl mx-auto" style={{ width: "375px" }}>
+          <div className="relative bg-neutral-900 rounded-[2.5rem] p-3 shadow-2xl mx-auto" style={{ width: "325px" }}>
             {/* Notch */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-neutral-900 rounded-b-3xl z-20" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4 bg-neutral-900 rounded-b-2xl z-20" />
             
             {/* Tela do Dispositivo - Proporção 9:16 */}
-            <div className="relative bg-white dark:bg-neutral-800 rounded-[2.5rem] overflow-hidden shadow-inner aspect-[9/19.5]">
+            <div className="relative bg-white dark:bg-neutral-800 rounded-[2rem] overflow-hidden shadow-inner aspect-[9/19.5]">
               {/* Barra de Status */}
-              <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-black/5 to-transparent z-10 flex items-center justify-between px-6 pt-3">
-                <span className="text-xs font-semibold text-neutral-900 dark:text-white">9:41</span>
+              <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-black/5 to-transparent z-10 flex items-center justify-between px-4 pt-2">
+                <span className="text-[10px] font-semibold text-neutral-900 dark:text-white">9:41</span>
                 <div className="flex items-center gap-1">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
@@ -67,13 +67,13 @@ export function ContainerScroll({ titleComponent, children }: ContainerScrollPro
               </div>
 
               {/* Conteúdo Scrollável */}
-              <div className="relative pt-10" style={{ height: "100%" }}>
+              <div className="relative pt-8" style={{ height: "100%" }}>
                 {children}
               </div>
             </div>
 
             {/* Botão Home */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-neutral-700 rounded-full" />
+            <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-1 bg-neutral-700 rounded-full" />
           </div>
         </div>
       </motion.div>
