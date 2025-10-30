@@ -47,16 +47,26 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
   }, []);
 
   useEffect(() => {
-    // Detecta tema inicial do DOM
-    const checkTheme = () => {
+    
+    // Detecta o tema inicial do localStorage ou sistema
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+    
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setIsDark(false);
+    }
+
+    // Observa mudanças no tema
+    const observer = new MutationObserver(() => {
       const isDarkMode = document.documentElement.classList.contains('dark');
       setIsDark(isDarkMode);
-    };
+    });
     
-    checkTheme();
-    
-    // Observer para detectar mudanças no tema
-    const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['class']
