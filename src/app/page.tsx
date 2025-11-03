@@ -27,6 +27,8 @@ import { FAQItem } from "@/components/FAQItem";
 import { Footer } from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { FEATURES, STEPS, PLANS, FAQ } from "@/lib/constants";
+import { AppFeaturesShowcase } from "@/components/AppFeaturesShowcase";
+import { TrustedSourcesNetwork } from "@/components/TrustedSourcesNetwork";
 
 // Variantes de animação
 const containerVariants = {
@@ -238,32 +240,32 @@ export default function Home() {
             <div className="space-y-2 p-2">
               {/* Telas do app em proporção 9:16 */}
               <Image 
-                src="/images/checkito/checkito_tela1.png" 
-                alt="CheckNow App - Tela 1"
+                src="/images/smartphone/home.PNG" 
+                alt="CheckNow App - Tela Inicial"
                 width={400}
                 height={711}
                 className="w-full h-auto rounded-lg"
                 loading="lazy"
               />
               <Image 
-                src="/images/checkito/checkito_tela2.png" 
-                alt="CheckNow App - Tela 2"
+                src="/images/smartphone/noticias.PNG" 
+                alt="CheckNow App - Notícias"
                 width={400}
                 height={711}
                 className="w-full h-auto rounded-lg"
                 loading="lazy"
               />
               <Image 
-                src="/images/checkito/checkito_tela3.png" 
-                alt="CheckNow App - Tela 3"
+                src="/images/smartphone/veredito.PNG" 
+                alt="CheckNow App - Veredito"
                 width={400}
                 height={711}
                 className="w-full h-auto rounded-lg"
                 loading="lazy"
               />
               <Image 
-                src="/images/checkito/checkito_tela4.png" 
-                alt="CheckNow App - Tela 4"
+                src="/images/smartphone/educacao.PNG" 
+                alt="CheckNow App - Educação"
                 width={400}
                 height={711}
                 className="w-full h-auto rounded-lg"
@@ -315,6 +317,20 @@ export default function Home() {
       <section className="section bg-gradient-to-b from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-800">
         <Container size="lg">
           <VisionMissionValues />
+        </Container>
+      </section>
+
+      {/* App Features Showcase Section */}
+      <section className="section bg-gradient-to-b from-primary-50/30 to-white dark:from-neutral-800 dark:to-neutral-900">
+        <Container size="lg">
+          <AppFeaturesShowcase />
+        </Container>
+      </section>
+
+      {/* Trusted Sources Network Section */}
+      <section className="section bg-white dark:bg-neutral-900">
+        <Container size="lg">
+          <TrustedSourcesNetwork />
         </Container>
       </section>
 
