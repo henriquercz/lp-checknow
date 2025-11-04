@@ -7,6 +7,7 @@
 
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight } from "lucide-react";
@@ -29,6 +30,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { FEATURES, STEPS, PLANS, FAQ } from "@/lib/constants";
 import { AppFeaturesShowcase } from "@/components/AppFeaturesShowcase";
 import TrustedSourcesNetwork from "@/components/TrustedSourcesNetwork";
+import { DownloadModal } from "@/components/DownloadModal";
 
 // Variantes de animação
 const containerVariants = {
@@ -52,6 +54,12 @@ const itemVariants = {
 };
 
 export default function Home() {
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+
+  const handleDownloadClick = () => {
+    setIsDownloadModalOpen(true);
+  };
+
   return (
     <main className="min-h-screen bg-white dark:bg-neutral-900">
       {/* Structured Data for SEO */}
@@ -59,6 +67,12 @@ export default function Home() {
       
       {/* Navbar */}
       <TubelightNavbar />
+
+      {/* Download Modal */}
+      <DownloadModal 
+        isOpen={isDownloadModalOpen} 
+        onClose={() => setIsDownloadModalOpen(false)} 
+      />
 
       {/* Hero Section */}
       <section 
@@ -116,7 +130,7 @@ export default function Home() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
             >
-              <InteractiveHoverButton>
+              <InteractiveHoverButton onClick={handleDownloadClick}>
                 <Download size={20} />
                 <span>Baixar Agora</span>
               </InteractiveHoverButton>
@@ -471,6 +485,7 @@ export default function Home() {
                 size="lg"
                 icon={<Download size={20} />}
                 className="!bg-white !text-primary-600 hover:!bg-neutral-100 shadow-2xl"
+                onClick={handleDownloadClick}
               >
                 Baixar CheckNow
               </Button>
