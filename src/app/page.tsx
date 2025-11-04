@@ -28,7 +28,7 @@ import { Footer } from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { FEATURES, STEPS, PLANS, FAQ } from "@/lib/constants";
 import { AppFeaturesShowcase } from "@/components/AppFeaturesShowcase";
-import { TrustedSourcesNetwork } from "@/components/TrustedSourcesNetwork";
+import TrustedSourcesNetwork from "@/components/TrustedSourcesNetwork";
 
 // Variantes de animação
 const containerVariants = {

@@ -30,7 +30,7 @@ const trustedSources: TrustedSource[] = [
   { name: "Metrópoles", logo: "/images/fontes/portal-metropoles.png", angle: 324 },
 ];
 
-export function TrustedSourcesNetwork() {
+export default function TrustedSourcesNetwork() {
   const [hoveredSource, setHoveredSource] = useState<string | null>(null);
   
   const radius = 220;
@@ -191,13 +191,13 @@ export function TrustedSourcesNetwork() {
                     borderColor: hoveredSource === source.name ? '#3B82F6' : '#93C5FD',
                   }}
                 >
-                  <div className="w-full h-full flex items-center justify-center p-3">
+                  <div className="w-full h-full flex items-center justify-center p-2">
                     <Image
                       src={source.logo}
                       alt={source.name}
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-contain"
+                      width={100}
+                      height={100}
+                      className="w-full h-full object-cover rounded-full"
                     />
                   </div>
                 </div>
@@ -223,19 +223,23 @@ export function TrustedSourcesNetwork() {
         {/* Central CheckNow Logo */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
           
-          {/* Pulsating Rings (Bolas Azuis) */}
+          {/* Pulsating Rings (Bolas Azuis e Verdes) */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div 
-              className="absolute rounded-full bg-primary-500/20 animate-ping-slow"
+              className="absolute rounded-full bg-primary-500/15 animate-ping-slow"
+              style={{ width: `${centerSize + 180}px`, height: `${centerSize + 180}px` }}
+            />
+            <div 
+              className="absolute rounded-full bg-primary-500/20 animate-ping-slower"
+              style={{ width: `${centerSize + 140}px`, height: `${centerSize + 140}px` }}
+            />
+            <div 
+              className="absolute rounded-full bg-success-500/15 animate-ping-slowest"
               style={{ width: `${centerSize + 100}px`, height: `${centerSize + 100}px` }}
             />
             <div 
-              className="absolute rounded-full bg-primary-500/30 animate-ping-slower"
-              style={{ width: `${centerSize + 70}px`, height: `${centerSize + 70}px` }}
-            />
-            <div 
-              className="absolute rounded-full bg-success-500/20 animate-ping-slowest"
-              style={{ width: `${centerSize + 40}px`, height: `${centerSize + 40}px` }}
+              className="absolute rounded-full bg-success-500/20 animate-ping-slow"
+              style={{ width: `${centerSize + 60}px`, height: `${centerSize + 60}px` }}
             />
           </div>
 
@@ -256,11 +260,11 @@ export function TrustedSourcesNetwork() {
             }}
           >
             <Image
-              src="/images/logo-sem-fundo.png"
+              src="/images/logo-fundo-branco.png"
               alt="CheckNow"
-              width={120}
-              height={120}
-              className="w-28 h-28 object-contain drop-shadow-2xl"
+              width={140}
+              height={140}
+              className="w-32 h-32 object-contain drop-shadow-2xl rounded-full"
             />
           </div>
 
@@ -285,34 +289,46 @@ export function TrustedSourcesNetwork() {
 
       <style jsx>{`
         @keyframes ping-slow {
-          0%, 100% {
+          0% {
             transform: scale(1);
-            opacity: 0.3;
+            opacity: 0.15;
           }
           50% {
-            transform: scale(1.3);
+            transform: scale(1.4);
             opacity: 0.05;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 0.15;
           }
         }
         
         @keyframes ping-slower {
-          0%, 100% {
+          0% {
             transform: scale(1);
-            opacity: 0.4;
+            opacity: 0.2;
           }
           50% {
-            transform: scale(1.2);
-            opacity: 0.1;
+            transform: scale(1.3);
+            opacity: 0.08;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 0.2;
           }
         }
         
         @keyframes ping-slowest {
-          0%, 100% {
+          0% {
             transform: scale(1);
-            opacity: 0.35;
+            opacity: 0.15;
           }
           50% {
-            transform: scale(1.15);
+            transform: scale(1.25);
+            opacity: 0.1;
+          }
+          100% {
+            transform: scale(1);
             opacity: 0.15;
           }
         }
