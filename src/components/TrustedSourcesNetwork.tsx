@@ -38,7 +38,7 @@ export default function TrustedSourcesNetwork() {
   const sourceSize = 100;
   
   // Distâncias das bolas pulsantes (mantidas)
-  const pulseDistances = [140, 100, 80, 50];
+  const pulseDistances = [100, 70, 40, 20];
   return (
     <div className="relative flex flex-col items-center w-full py-4">
       {/* Title */}
@@ -255,10 +255,10 @@ export default function TrustedSourcesNetwork() {
 
           {/* Main Circle */}
           <div
-            className="relative rounded-full bg-gradient-to-br from-primary-500 via-primary-600 to-success-500 shadow-2xl flex items-center justify-center border-4 border-white dark:border-neutral-900 animate-pulse-glow"
+            className="relative rounded-full bg-gradient-to-br from-primary-500 via-primary-600 to-success-500 shadow-2xl flex items-center justify-center border-3 border-white dark:border-neutral-900 animate-pulse-glow"
             style={{
-              width: `${centerSize}px`,
-              height: `${centerSize}px`,
+              width: `150px`,
+              height: `150px`,
             }}
           >
             <Image

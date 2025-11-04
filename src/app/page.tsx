@@ -328,7 +328,7 @@ export default function Home() {
       </section>
 
       {/* Trusted Sources Network Section */}
-      <section className="py-8 bg-white dark:bg-neutral-900">
+      <section className="py-8 bg-gradient-to-b from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-800">
         <Container size="lg">
           <TrustedSourcesNetwork />
         </Container>
