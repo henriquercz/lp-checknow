@@ -66,7 +66,7 @@ export default function Home() {
       <StructuredData />
       
       {/* Navbar */}
-      <TubelightNavbar />
+      <TubelightNavbar onDownloadClick={handleDownloadClick} />
 
       {/* Download Modal */}
       <DownloadModal 

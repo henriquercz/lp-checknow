@@ -9,7 +9,7 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Smartphone, Apple } from "lucide-react";
+import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface DownloadModalProps {
@@ -114,7 +114,10 @@ export function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
                       <div className="relative flex items-center justify-between">
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
-                            <Smartphone className="w-6 h-6 text-white" />
+                            {/* Android Logo SVG */}
+                            <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M17.523 15.341c-.759 0-1.375-.616-1.375-1.375s.616-1.375 1.375-1.375 1.375.616 1.375 1.375-.616 1.375-1.375 1.375zm-11.046 0c-.759 0-1.375-.616-1.375-1.375s.616-1.375 1.375-1.375 1.375.616 1.375 1.375-.616 1.375-1.375 1.375zM12 22.125c-5.376 0-9.75-4.374-9.75-9.75S6.624 2.625 12 2.625s9.75 4.374 9.75 9.75-4.374 9.75-9.75 9.75zm0-18c-4.55 0-8.25 3.7-8.25 8.25s3.7 8.25 8.25 8.25 8.25-3.7 8.25-8.25S16.55 4.125 12 4.125zM15.786 1.808c-.195-.195-.195-.512 0-.707l1.371-1.371c.195-.195.512-.195.707 0s.195.512 0 .707l-1.371 1.371c-.195.195-.512.195-.707 0zm-7.572 0l-1.371-1.371c-.195-.195-.195-.512 0-.707s.512-.195.707 0l1.371 1.371c.195.195.195.512 0 .707s-.512.195-.707 0z"/>
+                            </svg>
                           </div>
                           <div className="text-left">
                             <div className="text-lg font-bold text-white">
@@ -154,7 +157,10 @@ export function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
                       <div className="relative flex items-center justify-between">
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                            <Apple className="w-6 h-6 text-white" />
+                            {/* Apple Logo SVG */}
+                            <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                            </svg>
                           </div>
                           <div className="text-left">
                             <div className="text-lg font-bold text-white">

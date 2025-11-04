@@ -23,6 +23,7 @@ interface NavItem {
 
 interface TubelightNavbarProps {
   className?: string;
+  onDownloadClick?: () => void;
 }
 
 const navItems: NavItem[] = [
@@ -32,7 +33,7 @@ const navItems: NavItem[] = [
   { name: "FAQ", url: "#faq", icon: HelpCircle },
 ];
 
-export function TubelightNavbar({ className }: TubelightNavbarProps) {
+export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarProps) {
   const [activeTab, setActiveTab] = useState(navItems[0].name);
   const [isMobile, setIsMobile] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -251,6 +252,7 @@ export function TubelightNavbar({ className }: TubelightNavbarProps) {
           size="sm" 
           icon={<Download size={16} />} 
           className="ml-1 mr-1 !rounded-full px-5 py-2.5"
+          onClick={onDownloadClick}
         >
           <span className="hidden sm:inline">Baixar</span>
         </Button>

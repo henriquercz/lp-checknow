@@ -11,29 +11,54 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Apple, Instagram, ExternalLink, ArrowLeft, Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
-// import Image from "next/image"; // Descomentar quando adicionar as imagens reais
+import Image from "next/image";
 
-// Placeholders para as imagens do Instagram (1080x1080px - proporção 1:1)
+// Imagens do guia de instalação iOS (proporção 1:1)
 const tutorialSteps = [
   {
     id: 1,
-    image: "/images/tutorial-ios/step1.jpg", // Substituir pelas imagens reais
-    alt: "Passo 1 - Baixe o Expo Go",
+    image: "/images/guide-to-install/passo00.jpg",
+    alt: "Passo 0 - Preparação",
   },
   {
     id: 2,
-    image: "/images/tutorial-ios/step2.jpg",
-    alt: "Passo 2 - Abra o Instagram",
+    image: "/images/guide-to-install/passo01.jpg",
+    alt: "Passo 1 - Baixe o Expo Go",
   },
   {
     id: 3,
-    image: "/images/tutorial-ios/step3.jpg",
-    alt: "Passo 3 - Acesse o link na bio",
+    image: "/images/guide-to-install/passo02.jpg",
+    alt: "Passo 2 - Instale o Expo Go",
   },
   {
     id: 4,
-    image: "/images/tutorial-ios/step4.jpg",
-    alt: "Passo 4 - Escaneie o QR Code",
+    image: "/images/guide-to-install/passo03.jpg",
+    alt: "Passo 3 - Abra o Instagram",
+  },
+  {
+    id: 5,
+    image: "/images/guide-to-install/passo04.jpg",
+    alt: "Passo 4 - Acesse a bio",
+  },
+  {
+    id: 6,
+    image: "/images/guide-to-install/passo05.jpg",
+    alt: "Passo 5 - Copie o link",
+  },
+  {
+    id: 7,
+    image: "/images/guide-to-install/passo06.jpg",
+    alt: "Passo 6 - Abra o Expo Go",
+  },
+  {
+    id: 8,
+    image: "/images/guide-to-install/passo07.jpg",
+    alt: "Passo 7 - Cole o link",
+  },
+  {
+    id: 9,
+    image: "/images/guide-to-install/passo08.jpg",
+    alt: "Passo 8 - Pronto!",
   },
 ];
 
@@ -115,29 +140,14 @@ export default function IOSDownloadPage() {
                     transition={{ duration: 0.3 }}
                     className="absolute inset-0"
                   >
-                    {/* Placeholder para imagem do Instagram */}
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800">
-                      <div className="text-center p-8">
-                        <Instagram className="w-16 h-16 text-neutral-400 dark:text-neutral-500 mx-auto mb-4" />
-                        <p className="text-neutral-600 dark:text-neutral-400 font-medium mb-2">
-                          Imagem do Passo {tutorialSteps[currentSlide].id}
-                        </p>
-                        <p className="text-sm text-neutral-500 dark:text-neutral-500">
-                          Proporção 1:1 (1080x1080px)
-                        </p>
-                        <p className="text-xs text-neutral-400 dark:text-neutral-600 mt-2">
-                          {tutorialSteps[currentSlide].alt}
-                        </p>
-                      </div>
-                    </div>
-                    {/* Substituir com Image real quando disponível
+                    {/* Imagem real do guia de instalação */}
                     <Image
                       src={tutorialSteps[currentSlide].image}
                       alt={tutorialSteps[currentSlide].alt}
                       fill
                       className="object-cover"
+                      priority={currentSlide === 0}
                     />
-                    */}
                   </motion.div>
                 </AnimatePresence>
 
@@ -249,7 +259,7 @@ export default function IOSDownloadPage() {
                 </div>
 
                 <a
-                  href="https://instagram.com/checknow.app"
+                  href="https://instagram.com/checknow.br"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium hover:from-pink-600 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl w-full justify-center"
