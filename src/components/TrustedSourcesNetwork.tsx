@@ -33,17 +33,16 @@ const trustedSources: TrustedSource[] = [
 export default function TrustedSourcesNetwork() {
   const [hoveredSource, setHoveredSource] = useState<string | null>(null);
   
-  const radius = 280; // Aumentado de 220 para 280 - distância das linhas
+  const radius = 320; // Aumentado de 220 para 280 - distância das linhas
   const centerSize = 160;
   const sourceSize = 100;
   
   // Distâncias das bolas pulsantes (mantidas)
-  const pulseDistances = [280, 220, 160, 100];
-
+  const pulseDistances = [140, 100, 80, 50];
   return (
-    <div className="relative flex flex-col items-center w-full py-8">
+    <div className="relative flex flex-col items-center w-full py-4">
       {/* Title */}
-      <div className="mb-12 text-center z-10">
+      <div className="mb-8 text-center z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 mb-4">
           <Sparkles className="w-4 h-4 text-primary-500" />
           <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
@@ -281,7 +280,7 @@ export default function TrustedSourcesNetwork() {
       </div>
 
       {/* Bottom Info */}
-      <div className="text-center mt-6 z-10">
+      <div className="text-center mt-4 z-10">
         <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-primary-50 to-success-50 dark:from-primary-900/20 dark:to-success-900/20 border-2 border-primary-300 dark:border-primary-700">
           <Sparkles className="w-5 h-5 text-primary-500" />
           <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">
@@ -291,7 +290,7 @@ export default function TrustedSourcesNetwork() {
       </div>
 
       {/* Connection Status Indicator */}
-      <div className="mt-4 flex items-center justify-center gap-2">
+      <div className="mt-2 flex items-center justify-center gap-2">
         <div className="flex gap-1">
           <div className="w-2 h-2 rounded-full bg-success-500 animate-pulse" />
           <div className="w-2 h-2 rounded-full bg-success-500 animate-pulse" style={{ animationDelay: '0.2s' }} />
@@ -301,106 +300,6 @@ export default function TrustedSourcesNetwork() {
           Conectado com 10 fontes
         </span>
       </div>
-
-      <style jsx>{`
-        @keyframes ping-slow {
-          0% {
-            transform: scale(1);
-            opacity: 0.15;
-          }
-          50% {
-            transform: scale(1.4);
-            opacity: 0.05;
-          }
-          100% {
-            transform: scale(1);
-            opacity: 0.15;
-          }
-        }
-        
-        @keyframes ping-slower {
-          0% {
-            transform: scale(1);
-            opacity: 0.2;
-          }
-          50% {
-            transform: scale(1.3);
-            opacity: 0.08;
-          }
-          100% {
-            transform: scale(1);
-            opacity: 0.2;
-          }
-        }
-        
-        @keyframes ping-slowest {
-          0% {
-            transform: scale(1);
-            opacity: 0.15;
-          }
-          50% {
-            transform: scale(1.25);
-            opacity: 0.1;
-          }
-          100% {
-            transform: scale(1);
-            opacity: 0.15;
-          }
-        }
-        
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(-5px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-          }
-        }
-        
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.4), 0 0 80px rgba(34, 197, 94, 0.3);
-          }
-          50% {
-            box-shadow: 0 0 60px rgba(59, 130, 246, 0.6), 0 0 100px rgba(34, 197, 94, 0.5);
-          }
-        }
-        
-        .animate-ping-slow {
-          animation: ping-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        .animate-ping-slower {
-          animation: ping-slower 3s cubic-bezier(0.4, 0, 0.6, 1) infinite 0.5s;
-        }
-        
-        .animate-ping-slowest {
-          animation: ping-slowest 3s cubic-bezier(0.4, 0, 0.6, 1) infinite 1s;
-        }
-        
-        .animate-spin-slow {
-          animation: spin-slow 10s linear infinite;
-        }
-        
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
-        
-        .animate-pulse-glow {
-          animation: pulse-glow 4s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }
