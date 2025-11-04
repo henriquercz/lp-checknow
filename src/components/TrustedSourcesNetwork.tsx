@@ -33,12 +33,15 @@ const trustedSources: TrustedSource[] = [
 export default function TrustedSourcesNetwork() {
   const [hoveredSource, setHoveredSource] = useState<string | null>(null);
   
-  const radius = 220;
+  const radius = 280; // Aumentado de 220 para 280 - distância das linhas
   const centerSize = 160;
   const sourceSize = 100;
+  
+  // Distâncias das bolas pulsantes (mantidas)
+  const pulseDistances = [280, 220, 160, 100];
 
   return (
-    <div className="relative flex flex-col items-center w-full py-16">
+    <div className="relative flex flex-col items-center w-full py-8">
       {/* Title */}
       <div className="mb-12 text-center z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 mb-4">
@@ -223,23 +226,23 @@ export default function TrustedSourcesNetwork() {
         {/* Central CheckNow Logo */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
           
-          {/* Pulsating Rings (Bolas Azuis e Verdes) */}
+          {/* Pulsating Rings (Bolas Azuis e Verdes - Distâncias Aumentadas) */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div 
-              className="absolute rounded-full bg-primary-500/15 animate-ping-slow"
-              style={{ width: `${centerSize + 180}px`, height: `${centerSize + 180}px` }}
+              className="absolute rounded-full bg-primary-500/10 animate-ping-slow"
+              style={{ width: `${centerSize + pulseDistances[0]}px`, height: `${centerSize + pulseDistances[0]}px` }}
             />
             <div 
-              className="absolute rounded-full bg-primary-500/20 animate-ping-slower"
-              style={{ width: `${centerSize + 140}px`, height: `${centerSize + 140}px` }}
+              className="absolute rounded-full bg-primary-500/15 animate-ping-slower"
+              style={{ width: `${centerSize + pulseDistances[1]}px`, height: `${centerSize + pulseDistances[1]}px` }}
             />
             <div 
-              className="absolute rounded-full bg-success-500/15 animate-ping-slowest"
-              style={{ width: `${centerSize + 100}px`, height: `${centerSize + 100}px` }}
+              className="absolute rounded-full bg-success-500/12 animate-ping-slowest"
+              style={{ width: `${centerSize + pulseDistances[2]}px`, height: `${centerSize + pulseDistances[2]}px` }}
             />
             <div 
-              className="absolute rounded-full bg-success-500/20 animate-ping-slow"
-              style={{ width: `${centerSize + 60}px`, height: `${centerSize + 60}px` }}
+              className="absolute rounded-full bg-success-500/18 animate-ping-slow"
+              style={{ width: `${centerSize + pulseDistances[3]}px`, height: `${centerSize + pulseDistances[3]}px` }}
             />
           </div>
 
@@ -278,13 +281,25 @@ export default function TrustedSourcesNetwork() {
       </div>
 
       {/* Bottom Info */}
-      <div className="text-center mt-12 z-10">
+      <div className="text-center mt-6 z-10">
         <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-primary-50 to-success-50 dark:from-primary-900/20 dark:to-success-900/20 border-2 border-primary-300 dark:border-primary-700">
           <Sparkles className="w-5 h-5 text-primary-500" />
           <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">
             Rede de Verificação Inteligente com 10 Fontes
           </span>
         </div>
+      </div>
+
+      {/* Connection Status Indicator */}
+      <div className="mt-4 flex items-center justify-center gap-2">
+        <div className="flex gap-1">
+          <div className="w-2 h-2 rounded-full bg-success-500 animate-pulse" />
+          <div className="w-2 h-2 rounded-full bg-success-500 animate-pulse" style={{ animationDelay: '0.2s' }} />
+          <div className="w-2 h-2 rounded-full bg-success-500 animate-pulse" style={{ animationDelay: '0.4s' }} />
+        </div>
+        <span className="text-xs font-medium text-success-600 dark:text-success-400">
+          Conectado com 10 fontes
+        </span>
       </div>
 
       <style jsx>{`
