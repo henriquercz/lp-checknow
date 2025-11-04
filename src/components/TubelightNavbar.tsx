@@ -102,24 +102,14 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
   }, []);
 
   useEffect(() => {
-    
-    // Detecta o tema inicial do localStorage ou sistema
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
-    
-    if (shouldBeDark) {
-      document.documentElement.classList.add('dark');
-      setIsDark(true);
-    } else {
-      document.documentElement.classList.remove('dark');
-      setIsDark(false);
-    }
+    // Detecta o tema inicial (já aplicado pelo script no layout.tsx)
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    setIsDark(isDarkMode);
 
-    // Observa mudanças no tema
+    // Observa mudanças no tema (para sincronizar o ícone)
     const observer = new MutationObserver(() => {
-      const isDarkMode = document.documentElement.classList.contains('dark');
-      setIsDark(isDarkMode);
+      const currentDarkMode = document.documentElement.classList.contains('dark');
+      setIsDark(currentDarkMode);
     });
     
     observer.observe(document.documentElement, {
