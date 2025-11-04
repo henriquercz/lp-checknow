@@ -95,6 +95,8 @@ export function SplineRobot({ className = "" }: SplineRobotProps) {
                 height={400}
                 className="drop-shadow-2xl"
                 priority={idx === 0}
+                fetchPriority={idx === 0 ? "high" : "low"}
+                loading={idx === 0 ? "eager" : "lazy"}
               />
             </motion.div>
           ))}

@@ -8,6 +8,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight } from "lucide-react";
@@ -22,15 +23,28 @@ import { SplineRobot } from "@/components/SplineRobot";
 import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
-import { VisionMissionValues } from "@/components/VisionMissionValues";
 import { PricingCard } from "@/components/PricingCard";
 import { FAQItem } from "@/components/FAQItem";
-import { Footer } from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { FEATURES, STEPS, PLANS, FAQ } from "@/lib/constants";
-import { AppFeaturesShowcase } from "@/components/AppFeaturesShowcase";
-import TrustedSourcesNetwork from "@/components/TrustedSourcesNetwork";
 import { DownloadModal } from "@/components/DownloadModal";
+
+// Lazy load componentes pesados (below-the-fold)
+const VisionMissionValues = dynamic(() => import("@/components/VisionMissionValues").then(mod => ({ default: mod.VisionMissionValues })), {
+  loading: () => <div className="h-96 bg-neutral-50 dark:bg-neutral-800 animate-pulse rounded-2xl" />,
+});
+
+const AppFeaturesShowcase = dynamic(() => import("@/components/AppFeaturesShowcase").then(mod => ({ default: mod.AppFeaturesShowcase })), {
+  loading: () => <div className="h-96 bg-neutral-50 dark:bg-neutral-800 animate-pulse rounded-2xl" />,
+});
+
+const TrustedSourcesNetwork = dynamic(() => import("@/components/TrustedSourcesNetwork"), {
+  loading: () => <div className="h-96 bg-neutral-50 dark:bg-neutral-800 animate-pulse rounded-2xl" />,
+});
+
+const Footer = dynamic(() => import("@/components/Footer").then(mod => ({ default: mod.Footer })), {
+  loading: () => <div className="h-64 bg-neutral-900 animate-pulse" />,
+});
 
 // Variantes de animação
 const containerVariants = {
