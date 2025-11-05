@@ -11,7 +11,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { LucideIcon, Home, Shield, DollarSign, HelpCircle, Download, Moon, Sun } from "lucide-react";
+import { LucideIcon, Home, Shield, DollarSign, HelpCircle, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 
@@ -36,7 +36,6 @@ const navItems: NavItem[] = [
 export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarProps) {
   const [activeTab, setActiveTab] = useState(navItems[0].name);
   const [isMobile, setIsMobile] = useState(false);
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -101,41 +100,6 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
     };
   }, []);
 
-  useEffect(() => {
-    // Detecta o tema inicial (já aplicado pelo script no layout.tsx)
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    setIsDark(isDarkMode);
-
-    // Observa mudanças no tema (para sincronizar o ícone)
-    const observer = new MutationObserver(() => {
-      const currentDarkMode = document.documentElement.classList.contains('dark');
-      setIsDark(currentDarkMode);
-    });
-    
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    });
-    
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleTheme = () => {
-    const html = document.documentElement;
-    const isDarkNow = html.classList.contains('dark');
-    
-    if (isDarkNow) {
-      html.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      setIsDark(false);
-      console.log('Mudou para LIGHT');
-    } else {
-      html.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-      setIsDark(true);
-      console.log('Mudou para DARK');
-    }
-  };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
     e.preventDefault();
@@ -220,22 +184,6 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
             </a>
           );
         })}
-
-        {/* Divider */}
-        <div className="w-px h-8 bg-neutral-200 dark:bg-neutral-700" />
-
-        {/* Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-          aria-label="Toggle theme"
-        >
-          {isDark ? (
-            <Sun size={18} className="text-yellow-500" />
-          ) : (
-            <Moon size={18} className="text-neutral-600" />
-          )}
-        </button>
 
         {/* CTA Button */}
         <Button 
