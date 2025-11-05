@@ -9,7 +9,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Apple, Instagram, ExternalLink, ArrowLeft, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, Instagram, ExternalLink, ArrowLeft, Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -100,7 +100,10 @@ export default function IOSDownloadPage() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center justify-center w-20 h-20 mb-6 rounded-3xl bg-gradient-to-br from-neutral-800 to-black shadow-xl">
-            <Apple className="w-10 h-10 text-white" />
+            {/* Apple Logo SVG */}
+            <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             Instalação iOS
@@ -211,8 +214,24 @@ export default function IOSDownloadPage() {
                 </div>
 
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center flex-shrink-0">
-                    <Apple className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-neutral-700 flex items-center justify-center flex-shrink-0 overflow-hidden border border-neutral-200 dark:border-neutral-600">
+                    {/* Adicione a imagem do Expo Go aqui: /images/expo-go-logo.png */}
+                    <Image
+                      src="/images/expo-go-logo.png"
+                      alt="Expo Go"
+                      width={48}
+                      height={48}
+                      className="object-contain"
+                      onError={(e) => {
+                        // Fallback para ícone SVG se imagem não existir
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    {/* Fallback SVG (App Store icon) */}
+                    <svg className="w-8 h-8 text-primary-500 hidden" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-neutral-900 dark:text-white mb-2">
@@ -230,7 +249,10 @@ export default function IOSDownloadPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-black text-white font-medium hover:bg-neutral-800 transition-colors shadow-lg hover:shadow-xl w-full justify-center"
                 >
-                  <Apple className="w-5 h-5" />
+                  {/* App Store Logo SVG */}
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                  </svg>
                   Baixar na App Store
                   <ExternalLink className="w-4 h-4" />
                 </a>
