@@ -66,11 +66,13 @@ A landing page está disponível em: **https://checknow.app**
 ## 📥 Como Baixar o CheckNow
 
 ### Android
+
 - Clique no botão "Baixar Agora"
 - O APK será baixado automaticamente
 - Siga o guia de instalação passo a passo
 
 ### iOS
+
 - Clique no botão "Baixar Agora"
 - Instale o Expo Go na App Store
 - Acesse a bio do CheckNow no Instagram para o link
@@ -78,9 +80,9 @@ A landing page está disponível em: **https://checknow.app**
 
 ## 🎓 Contexto do TCC
 
-**Instituição**: Etec Taboão da Serra  
-**Curso**: Desenvolvimento de Sistemas  
-**Ano**: 2025  
+**Instituição**: Etec Taboão da Serra
+**Curso**: Desenvolvimento de Sistemas
+**Ano**: 2025
 **Objetivo**: Criar uma solução inovadora para combater desinformação usando IA
 
 ### Tecnologias Utilizadas
@@ -89,24 +91,26 @@ A landing page está disponível em: **https://checknow.app**
 - **Styling**: Tailwind CSS v4
 - **Animações**: Framer Motion
 - **Backend**: Node.js (API separada)
-- **IA**: Integração com modelos de machine learning
-- **Deploy**: Vercel (frontend), AWS (backend)
+- **Deploy**: Vercel
 
 ## 🚀 Destaques Técnicos
 
 ### Performance
+
 - ⚡ **Lighthouse Score**: > 90
 - 📊 **Core Web Vitals**: Otimizados
 - 🖼️ **Imagens**: Otimizadas com Next.js Image
 - 💾 **Code Splitting**: Lazy loading de componentes
 
 ### Qualidade
+
 - 🔒 **Segurança**: Headers de segurança, proteção XSS
 - ♿ **Acessibilidade**: WCAG 2.1 AA
 - 🌐 **SEO**: Structured data, meta tags, sitemap
 - 📱 **Responsividade**: Mobile-first design
 
 ### Experiência do Usuário
+
 - 🎨 **Design Moderno**: Interface intuitiva e atrativa
 - ⌨️ **Interatividade**: Componentes animados e responsivos
 - 🎯 **Navegação**: Smooth scrolling e transições fluidas
@@ -118,10 +122,10 @@ Este projeto é parte do CheckNow TCC 2025.
 
 ## 👨‍💻 Desenvolvedor
 
-**Capitão Henrique**
+**Henrique Rezende**
 
-- GitHub: [@ricks18](https://github.com/ricks18)
-- Email: henrique@checknow.app
+- GitHub: [@henriquercz](https://github.com/henriquercz)
+- Email: henriquechagas06@gmail.com
 
 ## 🙏 Agradecimentos
 
@@ -132,4 +136,4 @@ Este projeto é parte do CheckNow TCC 2025.
 
 ---
 
-**CheckNow v2.8** - Verificador Inteligente de Notícias 🛡️
+**CheckNow** - Verificador Inteligente de Notícias 🛡️
