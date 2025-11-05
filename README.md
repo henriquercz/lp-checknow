@@ -1,20 +1,44 @@
-# 🚀 Landing Page CheckNow
+# 🛡️ CheckNow - Landing Page Oficial
 
-Landing page profissional e moderna para o CheckNow - Verificador Inteligente de Notícias.
+> **Combata a desinformação com inteligência artificial**
 
-## 📋 Sobre o Projeto
+Bem-vindo à landing page do **CheckNow**, um verificador inteligente de notícias desenvolvido como Trabalho de Conclusão de Curso (TCC) na Etec Taboão da Serra.
 
-Esta é a landing page oficial do CheckNow, desenvolvida com Next.js 15, Tailwind CSS v4 e Framer Motion. A página apresenta o aplicativo de forma atrativa, com componentes animados e interativos de alta qualidade.
+## 🎯 O que é CheckNow?
 
-## 🎯 Características
+CheckNow é um aplicativo inovador que utiliza **inteligência artificial avançada** para ajudar você a identificar fake news em segundos. Em um mundo onde a desinformação se espalha rapidamente, o CheckNow é sua defesa definitiva contra notícias falsas.
 
-- ✨ **Componentes Animados**: Spline 3D, Container Scroll, Animated Hero
-- 📱 **100% Responsivo**: Funciona perfeitamente em todos os dispositivos
-- 🎨 **Design Moderno**: Tailwind CSS com paleta de cores do CheckNow
-- ⚡ **Performance**: Otimizado para Lighthouse > 90
-- 🌙 **Tema Claro/Escuro**: Suporte completo a modo escuro
+### Por que foi desenvolvido?
+
+Este projeto foi criado como TCC com o objetivo de:
+
+- ✅ **Combater a desinformação** em tempo real
+- ✅ **Democratizar o acesso** a ferramentas de fact-checking
+- ✅ **Educar usuários** sobre verificação de informações
+- ✅ **Utilizar IA** para análise automática de conteúdo
+- ✅ **Proteger a sociedade** contra manipulação de informações
+
+## 📱 Sobre esta Landing Page
+
+Esta é a página de apresentação oficial do CheckNow, desenvolvida com as **tecnologias mais modernas** para oferecer uma experiência visual impressionante e informativa.
+
+### ✨ Características Principais
+
+- 🎨 **Design Premium**: Interface moderna e atrativa com animações fluidas
+- 📱 **100% Responsivo**: Funciona perfeitamente em mobile, tablet e desktop
+- ⚡ **Performance Otimizada**: Lighthouse Score > 90, Core Web Vitals otimizados
+- 🚀 **Componentes Interativos**: Animações com Framer Motion, scroll effects
+- 🎯 **Seções Informativas**:
+  - Hero com apresentação do app
+  - Features destacando funcionalidades
+  - Demonstração visual com screenshots
+  - Rede de fontes confiáveis
+  - Planos de preço
+  - FAQ com dúvidas comuns
+  - Download direto para iOS e Android
+- 🔗 **Integração com App**: Links diretos para download via Expo Go (iOS) e APK (Android)
+- 🌐 **SEO Otimizado**: Structured data, meta tags, sitemap
 - ♿ **Acessível**: WCAG 2.1 AA compliance
-- 🔐 **Seguro**: Headers de segurança configurados
 
 ## 🛠️ Stack Tecnológico
 
@@ -25,158 +49,68 @@ Esta é a landing page oficial do CheckNow, desenvolvida com Next.js 15, Tailwin
 - **Linguagem**: TypeScript
 - **Componentes**: shadcn/ui (quando necessário)
 
-## 📦 Instalação
+## 🌍 Acesse a Landing Page
 
-### Pré-requisitos
+A landing page está disponível em: **https://checknow.app**
 
-- Node.js 18+ (recomendado 20+)
-- npm ou yarn
+### Seções Principais
 
-### Passos
+1. **Hero Section** - Apresentação impactante do CheckNow
+2. **Features** - Funcionalidades principais do aplicativo
+3. **App Showcase** - Demonstração visual com screenshots reais
+4. **Trusted Sources Network** - Rede de fontes confiáveis
+5. **Pricing** - Planos de preço e funcionalidades
+6. **FAQ** - Perguntas frequentes respondidas
+7. **Download** - Acesso direto para iOS (via Expo Go) e Android (APK)
 
-1. **Instale as dependências**:
+## 📥 Como Baixar o CheckNow
 
-```bash
-npm install
-```
+### Android
+- Clique no botão "Baixar Agora"
+- O APK será baixado automaticamente
+- Siga o guia de instalação passo a passo
 
-2. **Inicie o servidor de desenvolvimento**:
+### iOS
+- Clique no botão "Baixar Agora"
+- Instale o Expo Go na App Store
+- Acesse a bio do CheckNow no Instagram para o link
+- Abra no Expo Go
 
-```bash
-npm run dev
-```
+## 🎓 Contexto do TCC
 
-3. **Abra no navegador**:
+**Instituição**: Etec Taboão da Serra  
+**Curso**: Desenvolvimento de Sistemas  
+**Ano**: 2025  
+**Objetivo**: Criar uma solução inovadora para combater desinformação usando IA
 
-```
-http://localhost:3000
-```
+### Tecnologias Utilizadas
 
-## 📁 Estrutura do Projeto
+- **Frontend**: React, Next.js 15, TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animações**: Framer Motion
+- **Backend**: Node.js (API separada)
+- **IA**: Integração com modelos de machine learning
+- **Deploy**: Vercel (frontend), AWS (backend)
 
-```
-lp-checknow/
-├── public/                 # Arquivos estáticos
-│   ├── images/            # Screenshots, logos
-│   └── videos/            # Vídeos de demonstração
-├── src/
-│   ├── app/               # App Router do Next.js
-│   │   ├── layout.tsx     # Layout raiz
-│   │   ├── page.tsx       # Página inicial
-│   │   └── globals.css    # Estilos globais
-│   ├── components/        # Componentes reutilizáveis
-│   │   ├── Button.tsx
-│   │   ├── Container.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Features.tsx
-│   │   ├── Footer.tsx
-│   │   └── ...
-│   ├── lib/               # Utilitários
-│   │   ├── constants.ts   # Constantes
-│   │   └── utils.ts       # Funções auxiliares
-│   └── styles/            # Estilos adicionais
-├── tailwind.config.ts     # Configuração Tailwind
-├── tsconfig.json          # Configuração TypeScript
-├── next.config.ts         # Configuração Next.js
-└── package.json           # Dependências
-```
+## 🚀 Destaques Técnicos
 
-## 🚀 Scripts Disponíveis
+### Performance
+- ⚡ **Lighthouse Score**: > 90
+- 📊 **Core Web Vitals**: Otimizados
+- 🖼️ **Imagens**: Otimizadas com Next.js Image
+- 💾 **Code Splitting**: Lazy loading de componentes
 
-```bash
-# Desenvolvimento
-npm run dev
+### Qualidade
+- 🔒 **Segurança**: Headers de segurança, proteção XSS
+- ♿ **Acessibilidade**: WCAG 2.1 AA
+- 🌐 **SEO**: Structured data, meta tags, sitemap
+- 📱 **Responsividade**: Mobile-first design
 
-# Build para produção
-npm run build
-
-# Iniciar servidor de produção
-npm start
-
-# Verificar tipos TypeScript
-npm run type-check
-
-# Lint do código
-npm run lint
-```
-
-## 🎨 Paleta de Cores
-
-### Cores Principais
-
-- **Primary**: `#2563EB` (Azul)
-- **Success**: `#22C55E` (Verde)
-- **Error**: `#EF4444` (Vermelho)
-- **Warning**: `#F59E0B` (Amarelo)
-
-### Cores Neutras
-
-- **50**: `#F9FAFB`
-- **100**: `#F3F4F6`
-- **200**: `#E5E7EB`
-- **500**: `#6B7280`
-- **700**: `#374151`
-- **900**: `#111827`
-
-## 📱 Responsividade
-
-A landing page é totalmente responsiva com breakpoints:
-
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
-
-## 🔐 Segurança
-
-- Headers de segurança configurados
-- Proteção contra XSS
-- CORS configurado
-- Sem hardcode de chaves/tokens
-- Variáveis de ambiente seguras
-
-## 📊 Performance
-
-- Lighthouse Score: > 90
-- Core Web Vitals otimizados
-- Imagens otimizadas
-- Code splitting automático
-- Lazy loading de componentes
-
-## 🌐 Deploy
-
-### Vercel (Recomendado)
-
-1. Faça push para GitHub
-2. Conecte o repositório no Vercel
-3. Deploy automático em cada push
-
-### Outras Plataformas
-
-```bash
-# Build
-npm run build
-
-# Iniciar
-npm start
-```
-
-## 📝 Commits
-
-Todos os commits devem ser em português seguindo o padrão:
-
-```
-git commit -m "feat: adiciona seção de features"
-git commit -m "fix: corrige responsividade no mobile"
-git commit -m "docs: atualiza README"
-```
-
-## 🤝 Contribuindo
-
-1. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-2. Commit suas mudanças (`git commit -m 'feat: adiciona nova feature'`)
-3. Push para a branch (`git push origin feature/nova-feature`)
-4. Abra um Pull Request
+### Experiência do Usuário
+- 🎨 **Design Moderno**: Interface intuitiva e atrativa
+- ⌨️ **Interatividade**: Componentes animados e responsivos
+- 🎯 **Navegação**: Smooth scrolling e transições fluidas
+- 📲 **Mobile-Friendly**: Otimizado para todos os dispositivos
 
 ## 📄 Licença
 
