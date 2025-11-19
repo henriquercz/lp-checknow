@@ -59,10 +59,10 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.getAttribute('id');
-          
+
           // Encontra o item do nav correspondente
           const navItem = navItems.find(item => item.url === `#${sectionId}`);
-          
+
           if (navItem) {
             setActiveTab(navItem.name);
           }
@@ -104,7 +104,7 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
     e.preventDefault();
     setActiveTab(item.name);
-    
+
     // Scroll suave para a seção
     if (item.url.startsWith("#") && item.url.length > 1) {
       const element = document.querySelector(item.url);
@@ -127,9 +127,9 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
       <div className="flex items-center gap-1 bg-white/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 backdrop-blur-lg py-1.5 px-1.5 rounded-full shadow-lg">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 px-4 hover:opacity-80 transition-opacity">
-          <Image 
-            src="/images/logo-sem-fundo.png" 
-            alt="CheckNow Logo" 
+          <Image
+            src="/images/logo-sem-fundo.png"
+            alt="CheckNow Logo"
             width={32}
             height={32}
             className="w-8 h-8 object-contain"
@@ -151,6 +151,7 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
               key={item.name}
               href={item.url}
               onClick={(e) => handleClick(e, item)}
+              aria-label={item.name}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-4 py-2 rounded-full transition-colors",
                 "text-neutral-600 dark:text-neutral-400 hover:text-primary-500",
@@ -162,7 +163,7 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
               ) : (
                 <span>{item.name}</span>
               )}
-              
+
               {isActive && (
                 <motion.div
                   layoutId="lamp"
@@ -186,9 +187,9 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
         })}
 
         {/* CTA Button */}
-        <Button 
-          size="sm" 
-          icon={<Download size={16} />} 
+        <Button
+          size="sm"
+          icon={<Download size={16} />}
           className="ml-1 mr-1 !rounded-full px-5 py-2.5"
           onClick={onDownloadClick}
         >

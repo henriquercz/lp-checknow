@@ -7,7 +7,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -18,7 +18,7 @@ import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import { Checkito3D } from "@/components/Checkito3D";
+// import { Checkito3D } from "@/components/Checkito3D"; // Removido import estático
 import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
@@ -45,6 +45,12 @@ const Footer = dynamic(() => import("@/components/Footer").then(mod => ({ defaul
   loading: () => <div className="h-64 bg-neutral-900 animate-pulse" />,
 });
 
+// Carregamento dinâmico do 3D (apenas client-side)
+const Checkito3D = dynamic(() => import("@/components/Checkito3D").then(mod => ({ default: mod.Checkito3D })), {
+  ssr: false,
+  loading: () => <div className="w-full h-full flex items-center justify-center"><div className="w-12 h-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" /></div>,
+});
+
 // Variantes de animação
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -68,6 +74,19 @@ const itemVariants = {
 
 export default function Home() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Detectar se é desktop para carregar o 3D pesado apenas onde faz sentido
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
+    };
+
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, []);
 
   const handleDownloadClick = () => {
     setIsDownloadModalOpen(true);
@@ -187,7 +206,8 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative hidden lg:block h-[680px] xl:h-[880px] 2xl:h-[960px] translate-y-7"
             >
-              <Checkito3D className="w-full h-full" />
+              {/* Renderização condicional para performance extrema no mobile */}
+              {isDesktop && <Checkito3D className="w-full h-full" />}
             </motion.div>
           </div>
         </Container>

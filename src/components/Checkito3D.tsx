@@ -72,6 +72,8 @@ export function Checkito3D({ className = "" }: Checkito3DProps) {
         camera={{ position: [0, 0.4, 6.2], fov: 35 }}
         className="w-full h-full cursor-grab active:cursor-grabbing"
         shadows
+        dpr={[1, 2]} // Limita a densidade de pixels para economizar GPU
+        gl={{ antialias: true, powerPreference: "high-performance" }}
       >
         <Suspense fallback={null}>
           <Environment preset="city" />
