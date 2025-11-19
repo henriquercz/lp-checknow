@@ -18,7 +18,6 @@ import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { Checkito3D } from "@/components/Checkito3D";
 import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
@@ -235,23 +234,8 @@ export default function Home() {
       </section>
 
       {/* App Preview with Container Scroll Animation */}
-      <section className="relative py-4 overflow-hidden">
-        <BackgroundGradientAnimation
-          gradientBackgroundStart="rgb(255, 255, 255)"
-          gradientBackgroundEnd="rgb(249, 250, 251)"
-          firstColor="59, 130, 246"
-          secondColor="34, 197, 94"
-          thirdColor="96, 165, 250"
-          fourthColor="52, 211, 153"
-          fifthColor="191, 219, 254"
-          pointerColor="59, 130, 246"
-          size="80%"
-          blendingValue="normal"
-          interactive={true}
-          containerClassName="absolute inset-0"
-        />
-
-        <div className="relative z-10">
+      <section className="section bg-gradient-to-b from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-800 overflow-hidden py-12">
+        <div className="relative">
           <ContainerScroll
             titleComponent={
               <div className="text-center">
