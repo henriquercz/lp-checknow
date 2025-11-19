@@ -99,6 +99,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://checknow.app",
   },
+  verification: {
+    google: "google-site-verification-code", // Substituir pelo código real quando disponível
+  },
   category: "technology",
 };
 
@@ -152,7 +155,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-inter antialiased transition-colors duration-300">
+      <body
+        className="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-inter antialiased transition-colors duration-300"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>

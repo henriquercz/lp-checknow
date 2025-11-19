@@ -3,7 +3,7 @@
  * Adaptado do 21st.dev para CheckNow
  * Autor: Capitão Henrique
  * Data: Outubro 2025
- * Versão: 1.0.0
+ * Versão: 1.0.1
  */
 
 "use client";
@@ -119,6 +119,8 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
 
   return (
     <nav
+      role="navigation"
+      aria-label="Menu principal"
       className={cn(
         "fixed top-0 left-1/2 -translate-x-1/2 z-50 pt-6",
         className
@@ -192,6 +194,7 @@ export function TubelightNavbar({ className, onDownloadClick }: TubelightNavbarP
           icon={<Download size={16} />}
           className="ml-1 mr-1 !rounded-full px-5 py-2.5"
           onClick={onDownloadClick}
+          aria-label="Baixar aplicativo CheckNow"
         >
           <span className="hidden sm:inline">Baixar</span>
         </Button>
