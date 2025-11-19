@@ -19,7 +19,7 @@ import { AnimatedWords } from "@/components/AnimatedWords";
 import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
-import { SplineRobot } from "@/components/SplineRobot";
+import { Checkito3D } from "@/components/Checkito3D";
 import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
@@ -78,19 +78,19 @@ export default function Home() {
     <main className="min-h-screen bg-white dark:bg-neutral-900">
       {/* Structured Data for SEO */}
       <StructuredData />
-      
+
       {/* Navbar */}
       <TubelightNavbar onDownloadClick={handleDownloadClick} />
 
       {/* Download Modal */}
-      <DownloadModal 
-        isOpen={isDownloadModalOpen} 
-        onClose={() => setIsDownloadModalOpen(false)} 
+      <DownloadModal
+        isOpen={isDownloadModalOpen}
+        onClose={() => setIsDownloadModalOpen(false)}
       />
 
       {/* Hero Section */}
-      <section 
-        className="relative h-screen flex items-center justify-center overflow-hidden pt-4"
+      <section
+        className="relative min-h-[115vh] flex items-center justify-center overflow-hidden pt-16 pb-24"
         aria-label="Seção principal"
       >
         {/* Background Gradient */}
@@ -100,7 +100,7 @@ export default function Home() {
         </div>
 
         <Container size="lg">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start lg:items-stretch">
             {/* Left Column - Content */}
             <motion.div
               className="text-center lg:text-left pt-10"
@@ -118,48 +118,48 @@ export default function Home() {
                 </div>
               </motion.div>
 
-            {/* Título Principal */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            >
-              Combata a desinformação com{" "}
-              <span className="text-gradient">
-                <AnimatedWords 
-                  words={["Inteligência", "Precisão", "Segurança", "Confiança", "Tecnologia"]}
-                />
-              </span>
-            </motion.h1>
-
-            {/* Subtítulo */}
-            <motion.p
-              variants={itemVariants}
-              className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8"
-            >
-              Verifique notícias em segundos com inteligência artificial avançada. <AnimatedUnderlineText text="CheckNow" /> é sua defesa definitiva contra fake news.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
-            >
-              <InteractiveHoverButton onClick={handleDownloadClick}>
-                <Download size={20} />
-                <span>Baixar Agora</span>
-              </InteractiveHoverButton>
-              <a 
-                href="https://instagram.com/checknow.br" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block"
+              {/* Título Principal */}
+              <motion.h1
+                variants={itemVariants}
+                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
               >
-                <InteractiveHoverButton className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 hover:shadow-pink-500/50">
-                  <Instagram size={20} />
-                  <span>Siga no Instagram</span>
+                Combata a desinformação com{" "}
+                <span className="text-gradient">
+                  <AnimatedWords
+                    words={["Inteligência", "Precisão", "Segurança", "Confiança", "Tecnologia"]}
+                  />
+                </span>
+              </motion.h1>
+
+              {/* Subtítulo */}
+              <motion.p
+                variants={itemVariants}
+                className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8"
+              >
+                Verifique notícias em segundos com inteligência artificial avançada. <AnimatedUnderlineText text="CheckNow" /> é sua defesa definitiva contra fake news.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
+              >
+                <InteractiveHoverButton onClick={handleDownloadClick}>
+                  <Download size={20} />
+                  <span>Baixar Agora</span>
                 </InteractiveHoverButton>
-              </a>
-            </motion.div>
+                <a
+                  href="https://instagram.com/checknow.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <InteractiveHoverButton className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 hover:shadow-pink-500/50">
+                    <Instagram size={20} />
+                    <span>Siga no Instagram</span>
+                  </InteractiveHoverButton>
+                </a>
+              </motion.div>
 
               {/* Stats */}
               <motion.div
@@ -186,9 +186,9 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative h-[450px] lg:h-[500px] hidden lg:block"
+              className="relative hidden lg:block h-[680px] xl:h-[880px] 2xl:h-[960px] translate-y-7"
             >
-              <SplineRobot className="w-full h-full" />
+              <Checkito3D className="w-full h-full" />
             </motion.div>
           </div>
         </Container>
@@ -219,7 +219,7 @@ export default function Home() {
             {FEATURES.slice(0, 6).map((feature, index) => {
               const icons = [Shield, Zap, Brain, Lock, TrendingUp, Clock];
               const IconComponent = icons[index % icons.length];
-              
+
               return (
                 <FeatureCard
                   key={feature.id}
@@ -253,55 +253,55 @@ export default function Home() {
 
         <div className="relative z-10">
           <ContainerScroll
-          titleComponent={
-            <div className="text-center">
-              <h2 className="text-2xl md:text-4xl font-bold mb-2">
-                Experiência Intuitiva e <span className="text-primary-500">Poderosa</span>
-              </h2>
-              <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
-                Verifique notícias com apenas alguns toques.
-              </p>
+            titleComponent={
+              <div className="text-center">
+                <h2 className="text-2xl md:text-4xl font-bold mb-2">
+                  Experiência Intuitiva e <span className="text-primary-500">Poderosa</span>
+                </h2>
+                <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
+                  Verifique notícias com apenas alguns toques.
+                </p>
+              </div>
+            }
+          >
+            <div className="w-full h-full overflow-y-auto scrollbar-hide">
+              <div className="space-y-2 p-2">
+                {/* Telas do app em proporção 9:16 */}
+                <Image
+                  src="/images/smartphone/home.PNG"
+                  alt="CheckNow App - Tela Inicial"
+                  width={400}
+                  height={711}
+                  className="w-full h-auto rounded-lg"
+                  loading="lazy"
+                />
+                <Image
+                  src="/images/smartphone/noticias.PNG"
+                  alt="CheckNow App - Notícias"
+                  width={400}
+                  height={711}
+                  className="w-full h-auto rounded-lg"
+                  loading="lazy"
+                />
+                <Image
+                  src="/images/smartphone/veredito.PNG"
+                  alt="CheckNow App - Veredito"
+                  width={400}
+                  height={711}
+                  className="w-full h-auto rounded-lg"
+                  loading="lazy"
+                />
+                <Image
+                  src="/images/smartphone/educacao.PNG"
+                  alt="CheckNow App - Educação"
+                  width={400}
+                  height={711}
+                  className="w-full h-auto rounded-lg"
+                  loading="lazy"
+                />
+              </div>
             </div>
-          }
-        >
-          <div className="w-full h-full overflow-y-auto scrollbar-hide">
-            <div className="space-y-2 p-2">
-              {/* Telas do app em proporção 9:16 */}
-              <Image 
-                src="/images/smartphone/home.PNG" 
-                alt="CheckNow App - Tela Inicial"
-                width={400}
-                height={711}
-                className="w-full h-auto rounded-lg"
-                loading="lazy"
-              />
-              <Image 
-                src="/images/smartphone/noticias.PNG" 
-                alt="CheckNow App - Notícias"
-                width={400}
-                height={711}
-                className="w-full h-auto rounded-lg"
-                loading="lazy"
-              />
-              <Image 
-                src="/images/smartphone/veredito.PNG" 
-                alt="CheckNow App - Veredito"
-                width={400}
-                height={711}
-                className="w-full h-auto rounded-lg"
-                loading="lazy"
-              />
-              <Image 
-                src="/images/smartphone/educacao.PNG" 
-                alt="CheckNow App - Educação"
-                width={400}
-                height={711}
-                className="w-full h-auto rounded-lg"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </ContainerScroll>
+          </ContainerScroll>
         </div>
       </section>
 
@@ -433,7 +433,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <motion.div
             className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
-            animate={{ 
+            animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3]
             }}
@@ -441,7 +441,7 @@ export default function Home() {
           />
           <motion.div
             className="absolute bottom-0 left-0 w-96 h-96 bg-success-500/20 rounded-full blur-3xl"
-            animate={{ 
+            animate={{
               scale: [1.2, 1, 1.2],
               opacity: [0.2, 0.4, 0.2]
             }}
@@ -468,7 +468,7 @@ export default function Home() {
               <Sparkles size={40} className="text-white" />
             </motion.div>
 
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -477,7 +477,7 @@ export default function Home() {
             >
               Pronto para Combater a Desinformação?
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -487,7 +487,7 @@ export default function Home() {
             >
               Baixe o CheckNow agora e comece a verificar notícias com inteligência artificial
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
