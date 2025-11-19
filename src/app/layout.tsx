@@ -130,30 +130,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://checknowbr.vercel.app" />
         <link rel="preload" href="/images/checkito/checkito_tela1.png" as="image" fetchPriority="high" />
         <link rel="preload" href="/images/logo-sem-fundo.png" as="image" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const theme = localStorage.getItem('theme');
-                const html = document.documentElement;
-                
-                if (theme === 'dark') {
-                  html.classList.add('dark');
-                } else if (theme === 'light') {
-                  html.classList.remove('dark');
-                } else {
-                  // Se não tem preferência salva, usa a do sistema
-                  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (systemPrefersDark) {
-                    html.classList.add('dark');
-                  } else {
-                    html.classList.remove('dark');
-                  }
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
+
       </head>
       <body
         className="bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 font-inter antialiased transition-colors duration-300"
