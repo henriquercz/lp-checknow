@@ -9,11 +9,11 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  Shield, 
-  History, 
-  Newspaper, 
-  GraduationCap, 
+import {
+  Shield,
+  History,
+  Newspaper,
+  GraduationCap,
   Trophy,
   Sparkles,
   ArrowRight
@@ -21,7 +21,7 @@ import {
 import { TextEffect } from "@/components/ui/text-effect";
 
 interface FeatureShowcaseItem {
-  icon: React.ElementType;
+  icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
   tagline: string;
@@ -97,18 +97,18 @@ export function AppFeaturesShowcase() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <TextEffect 
+          <TextEffect
             key={`main-${currentPhraseIndex}`}
-            per="word" 
+            per="word"
             preset="blur"
             className="text-5xl md:text-7xl font-bold text-neutral-900 dark:text-white mb-4"
           >
             {impactPhrases[currentPhraseIndex]}
           </TextEffect>
-          
-          <TextEffect 
+
+          <TextEffect
             key={`sub-${currentPhraseIndex}`}
-            per="word" 
+            per="word"
             preset="slide"
             delay={0.3}
             className="text-2xl md:text-3xl text-primary-500 font-semibold"
@@ -129,7 +129,7 @@ export function AppFeaturesShowcase() {
       </div>
 
       {/* Carrossel Infinito */}
-      <div 
+      <div
         className="relative"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -142,7 +142,7 @@ export function AppFeaturesShowcase() {
           {/* Duplicar features para efeito infinito */}
           {[...features, ...features, ...features].map((feature, index) => {
             const Icon = feature.icon;
-            
+
             return (
               <motion.div
                 key={`feature-${index}`}

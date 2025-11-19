@@ -11,6 +11,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.0",
     "@splinetool/react-spline": "^4.1.0",
     "@splinetool/runtime": "^1.10.91",
     "@vercel/blob": "^2.0.0",
@@ -22,7 +24,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.181.2"
   },
   "devDependencies": {
     "@types/node": "^22.8.6",
