@@ -120,48 +120,34 @@ export default function Home() {
         <Container size="lg">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start lg:items-stretch">
             {/* Left Column - Content */}
-            <motion.div
-              className="text-center lg:text-left pt-10"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <div className="text-center lg:text-left pt-10">
               {/* Badge */}
-              <motion.div variants={itemVariants} className="mb-6 flex justify-center lg:justify-start">
+              <div className="mb-6 flex justify-center lg:justify-start">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800">
                   <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse" />
                   <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
                     Verificação Inteligente com IA
                   </span>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Título Principal */}
-              <motion.h1
-                variants={itemVariants}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-              >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                 Combata a desinformação com{" "}
                 <span className="text-gradient">
                   <AnimatedWords
                     words={["Inteligência", "Precisão", "Segurança", "Confiança", "Tecnologia"]}
                   />
                 </span>
-              </motion.h1>
+              </h1>
 
               {/* Subtítulo */}
-              <motion.p
-                variants={itemVariants}
-                className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8"
-              >
+              <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8">
                 Verifique notícias em segundos com inteligência artificial avançada. <AnimatedUnderlineText text="CheckNow" /> é sua defesa definitiva contra fake news.
-              </motion.p>
+              </p>
 
               {/* CTA Buttons */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
-              >
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
                 <InteractiveHoverButton onClick={handleDownloadClick}>
                   <Download size={20} />
                   <span>Baixar Agora</span>
@@ -177,13 +163,10 @@ export default function Home() {
                     <span>Siga no Instagram</span>
                   </InteractiveHoverButton>
                 </a>
-              </motion.div>
+              </div>
 
               {/* Stats */}
-              <motion.div
-                variants={itemVariants}
-                className="grid grid-cols-3 gap-4 md:gap-8"
-              >
+              <div className="grid grid-cols-3 gap-4 md:gap-8">
                 <div className="text-center lg:text-left">
                   <div className="text-2xl md:text-3xl font-bold text-primary-500">100K+</div>
                   <div className="text-sm text-neutral-600 dark:text-neutral-400">Usuários Ativos</div>
@@ -196,8 +179,8 @@ export default function Home() {
                   <div className="text-2xl md:text-3xl font-bold text-primary-500">99%</div>
                   <div className="text-sm text-neutral-600 dark:text-neutral-400">Precisão</div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
             {/* Right Column - 3D Robot */}
             <motion.div
