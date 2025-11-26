@@ -2,7 +2,7 @@
  * Página Inicial da Landing Page CheckNow
  * Autor: Capitão Henrique
  * Data: Outubro 2025
- * Versão: 1.3.1
+ * Versão: 1.3.2
  */
 
 "use client";
@@ -88,13 +88,13 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
-        className="relative min-h-[100vh] flex items-center pt-28 pb-20 lg:pt-32 lg:pb-24"
+        className="relative min-h-[100vh] flex items-center pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden"
         aria-label="Seção principal"
       >
         {/* Background Elements */}
-        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           {/* Dot Pattern (Bottom Left) */}
-          <div className="absolute bottom-0 left-0 w-[800px] h-[800px] opacity-60 dark:opacity-30">
+          <div className="absolute bottom-0 left-0 w-[800px] h-[800px] opacity-80 dark:opacity-40">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="dot-pattern" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
@@ -103,8 +103,6 @@ export default function Home() {
               </defs>
               <rect width="100%" height="100%" fill="url(#dot-pattern)" />
             </svg>
-            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white dark:to-neutral-900" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white dark:to-neutral-900" />
           </div>
 
           {/* Glow (Top Right) */}
@@ -114,7 +112,7 @@ export default function Home() {
           <div className="absolute -bottom-[10%] -left-[10%] w-[600px] h-[600px] bg-blue-400/15 rounded-full blur-[100px]" />
         </div>
 
-        <Container size="lg">
+        <Container size="lg" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Column - Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
