@@ -163,19 +163,35 @@ export default function Home() {
                 </a>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 border-t border-neutral-200 dark:border-neutral-800 pt-8">
-                <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-primary-500 mb-1">100K+</div>
-                  <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Usuários Ativos</div>
-                </div>
-                <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-primary-500 mb-1">1M+</div>
-                  <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Notícias Verificadas</div>
-                </div>
-                <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-primary-500 mb-1">99%</div>
-                  <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Precisão</div>
+              {/* Stats / Benefits - Glass Container for Visibility */}
+              <div className="mt-8 p-4 rounded-2xl bg-white/60 dark:bg-neutral-900/60 backdrop-blur-md border border-white/50 dark:border-neutral-800 shadow-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="flex items-center gap-3 justify-center lg:justify-start group">
+                    <div className="p-2.5 rounded-xl bg-white dark:bg-neutral-800 text-primary-600 shadow-sm border border-neutral-100 dark:border-neutral-700 group-hover:scale-110 transition-transform duration-300">
+                      <Zap size={20} />
+                    </div>
+                    <span className="text-sm font-bold text-neutral-800 dark:text-neutral-200 leading-tight">
+                      Análise<br />Instantânea
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3 justify-center lg:justify-start group">
+                    <div className="p-2.5 rounded-xl bg-white dark:bg-neutral-800 text-primary-600 shadow-sm border border-neutral-100 dark:border-neutral-700 group-hover:scale-110 transition-transform duration-300">
+                      <ShieldCheck size={20} />
+                    </div>
+                    <span className="text-sm font-bold text-neutral-800 dark:text-neutral-200 leading-tight">
+                      Fontes<br />Oficiais
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3 justify-center lg:justify-start group">
+                    <div className="p-2.5 rounded-xl bg-white dark:bg-neutral-800 text-primary-600 shadow-sm border border-neutral-100 dark:border-neutral-700 group-hover:scale-110 transition-transform duration-300">
+                      <Brain size={20} />
+                    </div>
+                    <span className="text-sm font-bold text-neutral-800 dark:text-neutral-200 leading-tight">
+                      Tecnologia<br />Avançada
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

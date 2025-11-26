@@ -51,7 +51,7 @@ Esta é a página de apresentação oficial do CheckNow, desenvolvida com as **t
 
 ## 🌍 Acesse a Landing Page
 
-A landing page está disponível em: **https://checknow.app**
+A landing page está disponível em: **https://checknowbr.vercel.app**
 
 ### Seções Principais
 
@@ -131,13 +131,6 @@ Este projeto foi desenvolvido com dedicação pela equipe:
 - **Henrique Rezende** ([@henriquercz](https://github.com/henriquercz))
 
 Entre em contato: henriquechagas06@gmail.com
-
-## 🙏 Agradecimentos
-
-- Etec Taboão da Serra
-- Comunidade Next.js
-- Tailwind CSS Team
-- Framer Motion Team
 
 ---
 
