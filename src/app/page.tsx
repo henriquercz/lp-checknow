@@ -182,7 +182,7 @@ export default function Home() {
             </div>
 
             {/* Right Column - Visuals */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative lg:translate-x-10">
+            <div className="hidden lg:flex order-1 lg:order-2 justify-center lg:justify-end relative lg:translate-x-10">
               {/* Animated UI Representation */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
