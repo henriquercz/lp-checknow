@@ -93,8 +93,8 @@ export default function Home() {
       >
         {/* Background Elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          {/* Dot Pattern (Bottom Left) */}
-          <div className="absolute bottom-0 left-0 w-[800px] h-[800px] opacity-80 dark:opacity-40">
+          {/* Dot Pattern (Top Left) */}
+          <div className="absolute top-0 left-0 w-[800px] h-[1000px] opacity-70 dark:opacity-40">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="dot-pattern" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
