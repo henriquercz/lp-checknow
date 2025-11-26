@@ -10,7 +10,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
+import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight, CheckCircle, AlertTriangle, Link, FileSearch, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
@@ -24,6 +24,7 @@ import { FAQItem } from "@/components/FAQItem";
 import { StructuredData } from "@/components/StructuredData";
 import { FEATURES, STEPS, PLANS, FAQ } from "@/lib/constants";
 import { DownloadModal } from "@/components/DownloadModal";
+import NextImage from "next/image";
 
 // Lazy load componentes pesados
 const VisionMissionValues = dynamic(() => import("@/components/VisionMissionValues").then(mod => ({ default: mod.VisionMissionValues })), {
@@ -370,16 +371,22 @@ export default function Home() {
       <AppPreviewSection />
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="section bg-white dark:bg-neutral-900">
-        <Container size="lg">
+      <section id="how-it-works" className="section relative overflow-hidden bg-white dark:bg-neutral-900 py-12 lg:py-20">
+        {/* Background Glows (Enhanced) */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-[30%] -left-[20%] w-[900px] h-[900px] bg-primary-500/20 rounded-full blur-[180px] dark:bg-primary-500/10" />
+          <div className="absolute -bottom-[30%] -right-[20%] w-[900px] h-[900px] bg-success-500/20 rounded-full blur-[180px] dark:bg-success-500/10" />
+        </div>
+
+        <Container size="lg" className="relative z-10">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-4">
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold mb-4">
               Como Funciona
             </motion.h2>
             <motion.p
@@ -390,17 +397,52 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto">
-            {STEPS.map((step, index) => (
-              <StepCard
-                key={step.id}
-                number={step.id}
-                title={step.title}
-                description={step.description}
-                delay={index * 0.2}
-                isLast={index === STEPS.length - 1}
-              />
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Mascot */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative hidden lg:flex justify-center items-center"
+            >
+              <motion.div
+                animate={{ y: [-15, 15, -15] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="relative w-full max-w-[500px] aspect-square"
+              >
+                {/* Blob Background */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-100 to-success-100 dark:from-primary-900/20 dark:to-success-900/20 rounded-full blur-3xl opacity-60 animate-pulse" />
+
+                <NextImage
+                  src="/images/checkito/checkito_tela2.png"
+                  alt="Checkito explicando como funciona"
+                  width={500}
+                  height={500}
+                  className="relative z-10 object-contain drop-shadow-2xl"
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Right Column - Steps */}
+            <div className="max-w-2xl mx-auto lg:mx-0">
+              {STEPS.map((step, index) => {
+                const icons = [Link, Brain, FileSearch, ShieldCheck];
+                const StepIcon = icons[index] || Zap;
+
+                return (
+                  <StepCard
+                    key={step.id}
+                    number={step.id}
+                    title={step.title}
+                    description={step.description}
+                    delay={index * 0.2}
+                    isLast={index === STEPS.length - 1}
+                    icon={StepIcon}
+                  />
+                );
+              })}
+            </div>
           </div>
         </Container>
       </section>
@@ -581,6 +623,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-    </main>
+    </main >
   );
 }

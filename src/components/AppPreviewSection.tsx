@@ -265,8 +265,8 @@ export function AppPreviewSection() {
                                 <div
                                     key={index}
                                     className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentScreen
-                                            ? "bg-primary-500 h-4"
-                                            : "bg-neutral-300 dark:bg-neutral-700"
+                                        ? "bg-primary-500 h-4"
+                                        : "bg-neutral-300 dark:bg-neutral-700"
                                         }`}
                                 />
                             ))}
