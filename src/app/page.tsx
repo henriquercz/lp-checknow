@@ -106,7 +106,7 @@ export default function Home() {
           </div>
 
           {/* Glow (Top Right) */}
-          <div className="absolute -top-[10%] -right-[10%] w-[800px] h-[800px] bg-primary-500/20 rounded-full blur-[120px]" />
+          <div className="absolute -top-[10%] -right-[10%] w-[800px] h-[800px] bg-success-500/20 rounded-full blur-[120px]" />
 
           {/* Secondary Glow (Bottom Left) */}
           <div className="absolute -bottom-[10%] -left-[10%] w-[600px] h-[600px] bg-blue-400/15 rounded-full blur-[100px]" />
@@ -178,59 +178,146 @@ export default function Home() {
             </div>
 
             {/* Right Column - Visuals */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative">
-              {/* Placeholder para Ilustração 3D/Visual */}
-              <div className="relative w-full max-w-[500px] aspect-square">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-100 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/10 rounded-[2rem] rotate-3 transform transition-transform hover:rotate-6 duration-500" />
-                <div className="absolute inset-0 bg-white dark:bg-neutral-800 rounded-[2rem] shadow-2xl border border-neutral-100 dark:border-neutral-700 flex items-center justify-center overflow-hidden">
-                  {/* Abstract UI Representation */}
-                  <div className="w-full h-full p-8 flex flex-col gap-6 opacity-80">
-                    {/* Header Mockup */}
-                    <div className="flex items-center justify-between">
-                      <div className="w-32 h-8 bg-neutral-100 dark:bg-neutral-700 rounded-lg animate-pulse" />
-                      <div className="w-8 h-8 bg-primary-100 dark:bg-primary-900/30 rounded-full" />
-                    </div>
-                    {/* Content Mockup */}
-                    <div className="space-y-4">
-                      <div className="w-full h-32 bg-neutral-50 dark:bg-neutral-700/50 rounded-xl border border-neutral-100 dark:border-neutral-700 p-4">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-10 h-10 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center text-red-500">
-                            <AlertTriangle size={20} />
-                          </div>
-                          <div className="flex-1">
-                            <div className="w-24 h-4 bg-neutral-200 dark:bg-neutral-600 rounded mb-1" />
-                            <div className="w-16 h-3 bg-neutral-100 dark:bg-neutral-700 rounded" />
-                          </div>
-                        </div>
-                        <div className="w-full h-2 bg-neutral-100 dark:bg-neutral-700 rounded mb-2" />
-                        <div className="w-2/3 h-2 bg-neutral-100 dark:bg-neutral-700 rounded" />
-                      </div>
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative lg:translate-x-10">
+              {/* Animated UI Representation */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full max-w-[500px] aspect-square"
+              >
+                {/* Rotating Gradient Background */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 bg-gradient-to-tr from-primary-200 via-blue-100 to-primary-50 dark:from-primary-900/40 dark:via-blue-900/20 dark:to-primary-900/10 rounded-[2.5rem] blur-xl opacity-70"
+                />
 
-                      <div className="w-full h-32 bg-neutral-50 dark:bg-neutral-700/50 rounded-xl border border-neutral-100 dark:border-neutral-700 p-4">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-10 h-10 bg-success-100 dark:bg-success-900/20 rounded-full flex items-center justify-center text-success-500">
-                            <CheckCircle size={20} />
-                          </div>
-                          <div className="flex-1">
-                            <div className="w-24 h-4 bg-neutral-200 dark:bg-neutral-600 rounded mb-1" />
-                            <div className="w-16 h-3 bg-neutral-100 dark:bg-neutral-700 rounded" />
-                          </div>
-                        </div>
-                        <div className="w-full h-2 bg-neutral-100 dark:bg-neutral-700 rounded mb-2" />
-                        <div className="w-2/3 h-2 bg-neutral-100 dark:bg-neutral-700 rounded" />
-                      </div>
+                {/* Main Glass Card */}
+                <div className="absolute inset-4 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-white/50 dark:border-neutral-700/50 flex flex-col overflow-hidden">
+                  {/* Header Mockup */}
+                  <div className="p-6 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                      <div className="w-3 h-3 rounded-full bg-green-400/80" />
                     </div>
+                    <div className="h-2 w-20 bg-neutral-100 dark:bg-neutral-800 rounded-full" />
                   </div>
 
-                  {/* Floating Badge Center */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-neutral-800 p-4 rounded-2xl shadow-xl border border-primary-100 dark:border-primary-900/30 flex flex-col items-center gap-2">
-                    <div className="w-16 h-16 bg-primary-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary-500/30">
-                      <Brain size={32} />
+                  {/* Content Area */}
+                  <div className="p-6 flex-1 flex flex-col gap-4 relative">
+                    {/* Scanning Line Effect */}
+                    <motion.div
+                      animate={{ top: ["0%", "100%", "0%"] }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                      className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-50 z-10 pointer-events-none"
+                    />
+
+                    {/* Fake News Card (Animated) */}
+                    <motion.div
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                      className="bg-red-50/50 dark:bg-red-900/10 rounded-xl p-4 border border-red-100 dark:border-red-900/20"
+                    >
+                      <div className="flex gap-3">
+                        <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-500 shrink-0">
+                          <AlertTriangle size={20} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1 leading-snug">
+                            "Nova taxa do PIX começa a valer nesta segunda-feira"
+                          </p>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-600 dark:bg-red-900/50 dark:text-red-400 border border-red-200 dark:border-red-800">
+                              FALSO
+                            </span>
+                            <span className="text-[10px] text-neutral-400">Viral no WhatsApp</span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    {/* Verified Card (Animated) */}
+                    <motion.div
+                      initial={{ x: 20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.8 }}
+                      className="bg-emerald-50/50 dark:bg-emerald-900/10 rounded-xl p-4 border border-emerald-100 dark:border-emerald-900/20"
+                    >
+                      <div className="flex gap-3">
+                        <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 shrink-0">
+                          <CheckCircle size={20} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1 leading-snug">
+                            "Banco Central reafirma gratuidade do PIX para pessoas físicas"
+                          </p>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/50 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                              VERDADEIRO
+                            </span>
+                            <span className="text-[10px] text-neutral-400">Fonte Oficial</span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    {/* Processing Text */}
+                    <div className="mt-auto flex items-center gap-2 text-xs text-neutral-400">
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                      >
+                        <Clock size={12} />
+                      </motion.div>
+                      <span>Processando análise em tempo real...</span>
                     </div>
-                    <div className="text-xs font-bold text-neutral-900 dark:text-white">AI Analysis</div>
                   </div>
                 </div>
-              </div>
+
+                {/* Central AI Core (Floating & Pulsing) */}
+                <motion.div
+                  animate={{ y: [-10, 10, -10] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                >
+                  <div className="relative">
+                    {/* Pulsing Rings */}
+                    <motion.div
+                      animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0 bg-primary-500/30 rounded-full blur-md"
+                    />
+                    <div className="relative w-24 h-24 bg-white dark:bg-neutral-800 rounded-2xl shadow-2xl border border-primary-100 dark:border-primary-900/50 flex flex-col items-center justify-center gap-2 z-20">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                        <Brain size={28} />
+                      </div>
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">
+                        AI Analysis
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Floating Particles/Icons */}
+                <motion.div
+                  animate={{ y: [-15, 15, -15], x: [5, -5, 5] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-4 -right-4 bg-white dark:bg-neutral-800 p-3 rounded-xl shadow-lg border border-neutral-100 dark:border-neutral-700 text-yellow-500"
+                >
+                  <Zap size={20} fill="currentColor" />
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [10, -10, 10], x: [-5, 5, -5] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute -bottom-8 -left-4 bg-white dark:bg-neutral-800 p-3 rounded-xl shadow-lg border border-neutral-100 dark:border-neutral-700 text-primary-500"
+                >
+                  <Shield size={20} />
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </Container>
