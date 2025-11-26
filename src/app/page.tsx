@@ -2,23 +2,22 @@
  * Página Inicial da Landing Page CheckNow
  * Autor: Capitão Henrique
  * Data: Outubro 2025
- * Versão: 1.0.0
+ * Versão: 1.3.1
  */
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight } from "lucide-react";
+import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight, CheckCircle, AlertTriangle, FileText } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-// import { Checkito3D } from "@/components/Checkito3D"; // Removido import estático
 import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
@@ -28,7 +27,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { FEATURES, STEPS, PLANS, FAQ } from "@/lib/constants";
 import { DownloadModal } from "@/components/DownloadModal";
 
-// Lazy load componentes pesados (below-the-fold)
+// Lazy load componentes pesados
 const VisionMissionValues = dynamic(() => import("@/components/VisionMissionValues").then(mod => ({ default: mod.VisionMissionValues })), {
   loading: () => <div className="h-96 bg-neutral-50 dark:bg-neutral-800 animate-pulse rounded-2xl" />,
 });
@@ -43,12 +42,6 @@ const TrustedSourcesNetwork = dynamic(() => import("@/components/TrustedSourcesN
 
 const Footer = dynamic(() => import("@/components/Footer").then(mod => ({ default: mod.Footer })), {
   loading: () => <div className="h-64 bg-neutral-900 animate-pulse" />,
-});
-
-// Carregamento dinâmico do 3D (apenas client-side)
-const Checkito3D = dynamic(() => import("@/components/Checkito3D").then(mod => ({ default: mod.Checkito3D })), {
-  ssr: false,
-  loading: () => <div className="w-full h-full flex items-center justify-center"><div className="w-12 h-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" /></div>,
 });
 
 // Variantes de animação
@@ -74,26 +67,13 @@ const itemVariants = {
 
 export default function Home() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  // Detectar se é desktop para carregar o 3D pesado apenas onde faz sentido
-  useEffect(() => {
-    const checkIsDesktop = () => {
-      setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
-    };
-
-    checkIsDesktop();
-    window.addEventListener('resize', checkIsDesktop);
-
-    return () => window.removeEventListener('resize', checkIsDesktop);
-  }, []);
 
   const handleDownloadClick = () => {
     setIsDownloadModalOpen(true);
   };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-neutral-900">
+    <main className="min-h-screen bg-white dark:bg-neutral-900 overflow-x-hidden">
       {/* Structured Data for SEO */}
       <StructuredData />
 
@@ -108,22 +88,39 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
-        className="relative min-h-[115vh] flex items-center justify-center overflow-hidden pt-16 pb-24"
+        className="relative min-h-[100vh] flex items-center pt-28 pb-20 lg:pt-32 lg:pb-24"
         aria-label="Seção principal"
       >
-        {/* Background Gradient */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl" />
+        {/* Background Elements */}
+        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          {/* Dot Pattern (Bottom Left) */}
+          <div className="absolute bottom-0 left-0 w-[800px] h-[800px] opacity-60 dark:opacity-30">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="dot-pattern" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="2" className="text-primary-200 dark:text-primary-800 fill-current" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#dot-pattern)" />
+            </svg>
+            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white dark:to-neutral-900" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white dark:to-neutral-900" />
+          </div>
+
+          {/* Glow (Top Right) */}
+          <div className="absolute -top-[10%] -right-[10%] w-[800px] h-[800px] bg-primary-500/20 rounded-full blur-[120px]" />
+
+          {/* Secondary Glow (Bottom Left) */}
+          <div className="absolute -bottom-[10%] -left-[10%] w-[600px] h-[600px] bg-blue-400/15 rounded-full blur-[100px]" />
         </div>
 
         <Container size="lg">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start lg:items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Column - Content */}
-            <div className="text-center lg:text-left pt-10">
+            <div className="text-center lg:text-left order-2 lg:order-1">
               {/* Badge */}
-              <div className="mb-6 flex justify-center lg:justify-start">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800">
+              <div className="mb-4 flex justify-center lg:justify-start">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800 backdrop-blur-sm">
                   <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse" />
                   <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
                     Verificação Inteligente com IA
@@ -132,9 +129,9 @@ export default function Home() {
               </div>
 
               {/* Título Principal */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-[1.1] tracking-tight text-neutral-900 dark:text-white">
                 Combata a desinformação com{" "}
-                <span className="text-gradient">
+                <span className="text-gradient block pb-2">
                   <AnimatedWords
                     words={["Inteligência", "Precisão", "Segurança", "Confiança", "Tecnologia"]}
                   />
@@ -142,13 +139,13 @@ export default function Home() {
               </h1>
 
               {/* Subtítulo */}
-              <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8">
+              <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
                 Verifique notícias em segundos com inteligência artificial avançada. <AnimatedUnderlineText text="CheckNow" /> é sua defesa definitiva contra fake news.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-                <InteractiveHoverButton onClick={handleDownloadClick}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+                <InteractiveHoverButton onClick={handleDownloadClick} className="w-full sm:w-auto justify-center">
                   <Download size={20} />
                   <span>Baixar Agora</span>
                 </InteractiveHoverButton>
@@ -156,9 +153,9 @@ export default function Home() {
                   href="https://instagram.com/checknow.br"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block"
+                  className="inline-block w-full sm:w-auto"
                 >
-                  <InteractiveHoverButton className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 hover:shadow-pink-500/50">
+                  <InteractiveHoverButton className="w-full sm:w-auto justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 hover:shadow-pink-500/50">
                     <Instagram size={20} />
                     <span>Siga no Instagram</span>
                   </InteractiveHoverButton>
@@ -166,32 +163,77 @@ export default function Home() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 md:gap-8">
+              <div className="grid grid-cols-3 gap-6 border-t border-neutral-200 dark:border-neutral-800 pt-8">
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500">100K+</div>
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400">Usuários Ativos</div>
+                  <div className="text-3xl font-bold text-primary-500 mb-1">100K+</div>
+                  <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Usuários Ativos</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500">1M+</div>
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400">Notícias Verificadas</div>
+                  <div className="text-3xl font-bold text-primary-500 mb-1">1M+</div>
+                  <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Notícias Verificadas</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500">99%</div>
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400">Precisão</div>
+                  <div className="text-3xl font-bold text-primary-500 mb-1">99%</div>
+                  <div className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Precisão</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - 3D Robot */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative hidden lg:block h-[680px] xl:h-[880px] 2xl:h-[960px] translate-y-7"
-            >
-              {/* Renderização condicional para performance extrema no mobile */}
-              {isDesktop && <Checkito3D className="w-full h-full" />}
-            </motion.div>
+            {/* Right Column - Visuals */}
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative">
+              {/* Placeholder para Ilustração 3D/Visual */}
+              <div className="relative w-full max-w-[500px] aspect-square">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-100 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/10 rounded-[2rem] rotate-3 transform transition-transform hover:rotate-6 duration-500" />
+                <div className="absolute inset-0 bg-white dark:bg-neutral-800 rounded-[2rem] shadow-2xl border border-neutral-100 dark:border-neutral-700 flex items-center justify-center overflow-hidden">
+                  {/* Abstract UI Representation */}
+                  <div className="w-full h-full p-8 flex flex-col gap-6 opacity-80">
+                    {/* Header Mockup */}
+                    <div className="flex items-center justify-between">
+                      <div className="w-32 h-8 bg-neutral-100 dark:bg-neutral-700 rounded-lg animate-pulse" />
+                      <div className="w-8 h-8 bg-primary-100 dark:bg-primary-900/30 rounded-full" />
+                    </div>
+                    {/* Content Mockup */}
+                    <div className="space-y-4">
+                      <div className="w-full h-32 bg-neutral-50 dark:bg-neutral-700/50 rounded-xl border border-neutral-100 dark:border-neutral-700 p-4">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center text-red-500">
+                            <AlertTriangle size={20} />
+                          </div>
+                          <div className="flex-1">
+                            <div className="w-24 h-4 bg-neutral-200 dark:bg-neutral-600 rounded mb-1" />
+                            <div className="w-16 h-3 bg-neutral-100 dark:bg-neutral-700 rounded" />
+                          </div>
+                        </div>
+                        <div className="w-full h-2 bg-neutral-100 dark:bg-neutral-700 rounded mb-2" />
+                        <div className="w-2/3 h-2 bg-neutral-100 dark:bg-neutral-700 rounded" />
+                      </div>
+
+                      <div className="w-full h-32 bg-neutral-50 dark:bg-neutral-700/50 rounded-xl border border-neutral-100 dark:border-neutral-700 p-4">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 bg-success-100 dark:bg-success-900/20 rounded-full flex items-center justify-center text-success-500">
+                            <CheckCircle size={20} />
+                          </div>
+                          <div className="flex-1">
+                            <div className="w-24 h-4 bg-neutral-200 dark:bg-neutral-600 rounded mb-1" />
+                            <div className="w-16 h-3 bg-neutral-100 dark:bg-neutral-700 rounded" />
+                          </div>
+                        </div>
+                        <div className="w-full h-2 bg-neutral-100 dark:bg-neutral-700 rounded mb-2" />
+                        <div className="w-2/3 h-2 bg-neutral-100 dark:bg-neutral-700 rounded" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating Badge Center */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-neutral-800 p-4 rounded-2xl shadow-xl border border-primary-100 dark:border-primary-900/30 flex flex-col items-center gap-2">
+                    <div className="w-16 h-16 bg-primary-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary-500/30">
+                      <Brain size={32} />
+                    </div>
+                    <div className="text-xs font-bold text-neutral-900 dark:text-white">AI Analysis</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
