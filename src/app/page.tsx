@@ -231,7 +231,7 @@ export default function Home() {
                         </div>
                         <div className="flex-1">
                           <p className="text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1 leading-snug">
-                            "Nova taxa do PIX começa a valer nesta segunda-feira"
+                            &quot;Nova taxa do PIX começa a valer nesta segunda-feira&quot;
                           </p>
                           <div className="flex items-center gap-2">
                             <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-600 dark:bg-red-900/50 dark:text-red-400 border border-red-200 dark:border-red-800">
@@ -256,7 +256,7 @@ export default function Home() {
                         </div>
                         <div className="flex-1">
                           <p className="text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1 leading-snug">
-                            "Banco Central reafirma gratuidade do PIX para pessoas físicas"
+                            &quot;Banco Central reafirma gratuidade do PIX para pessoas físicas&quot;
                           </p>
                           <div className="flex items-center gap-2">
                             <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/50 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">

@@ -32,17 +32,32 @@ const trustedSources: TrustedSource[] = [
 
 export default function TrustedSourcesNetwork() {
   const [hoveredSource, setHoveredSource] = useState<string | null>(null);
-  
+
   const radius = 320; // Aumentado de 220 para 280 - distância das linhas
   const centerSize = 160;
   const sourceSize = 100;
-  
+
   // Distâncias das bolas pulsantes (mantidas)
   const pulseDistances = [100, 70, 40, 20];
   return (
-    <div className="relative flex flex-col items-center w-full py-4">
+    <div className="relative flex flex-col items-center w-full py-4 overflow-hidden">
+      {/* Background Radar & Gradient (Enhanced Visibility) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        {/* Radial Gradient Glow */}
+        <div className="absolute w-[900px] h-[900px] bg-[radial-gradient(circle,var(--tw-gradient-stops))] from-primary-50/40 via-neutral-50/10 to-transparent dark:from-primary-900/10 dark:via-neutral-900/10" />
+
+        {/* Concentric Radar Rings */}
+        <div className="absolute w-[350px] h-[350px] rounded-full border border-neutral-200/60 dark:border-neutral-800/60" />
+        <div className="absolute w-[550px] h-[550px] rounded-full border border-neutral-200/50 dark:border-neutral-800/50" />
+        <div className="absolute w-[750px] h-[750px] rounded-full border border-neutral-200/40 dark:border-neutral-800/40" />
+
+        {/* Cross Lines */}
+        <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-neutral-200/50 to-transparent dark:via-neutral-800/50" />
+        <div className="absolute h-full w-[1px] bg-gradient-to-b from-transparent via-neutral-200/50 to-transparent dark:via-neutral-800/50" />
+      </div>
+
       {/* Title */}
-      <div className="mb-8 text-center z-10">
+      <div className="mb-8 text-center z-10 relative">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 mb-4">
           <Sparkles className="w-4 h-4 text-primary-500" />
           <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
@@ -58,11 +73,11 @@ export default function TrustedSourcesNetwork() {
       </div>
 
       {/* Network Container */}
-      <div className="relative w-full max-w-[700px] h-[700px] flex items-center justify-center">
-        
+      <div className="relative w-full max-w-[700px] h-[700px] flex items-center justify-center z-10">
+
         {/* SVG Layer for Lines */}
-        <svg 
-          className="absolute inset-0 w-full h-full" 
+        <svg
+          className="absolute inset-0 w-full h-full"
           viewBox="0 0 700 700"
           style={{ overflow: 'visible' }}
         >
@@ -110,12 +125,12 @@ export default function TrustedSourcesNetwork() {
                 />
               </stop>
             </linearGradient>
-            
+
             <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
               <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
           </defs>
@@ -124,11 +139,11 @@ export default function TrustedSourcesNetwork() {
             const angleRad = ((source.angle - 90) * Math.PI) / 180;
             const x = 350 + radius * Math.cos(angleRad);
             const y = 350 + radius * Math.sin(angleRad);
-            
+
             const controlPointDistance = radius * 0.5;
             const controlX = 350 + controlPointDistance * Math.cos(angleRad);
             const controlY = 350 + controlPointDistance * Math.sin(angleRad);
-            
+
             const pathData = `M 350 350 Q ${controlX} ${controlY} ${x} ${y}`;
 
             return (
@@ -183,9 +198,9 @@ export default function TrustedSourcesNetwork() {
                 {hoveredSource === source.name && (
                   <div className="absolute inset-0 rounded-full bg-primary-500/40 blur-2xl scale-150 animate-pulse" />
                 )}
-                
+
                 {/* Badge Container */}
-                <div 
+                <div
                   className="relative rounded-full bg-white dark:bg-neutral-800 border-4 shadow-2xl flex items-center justify-center overflow-hidden transition-all duration-300"
                   style={{
                     width: `${sourceSize}px`,
@@ -206,7 +221,7 @@ export default function TrustedSourcesNetwork() {
 
                 {/* Tooltip */}
                 {hoveredSource === source.name && (
-                  <div 
+                  <div
                     className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none z-50 animate-fadeIn"
                     style={{
                       top: y > 0 ? '-60px' : 'calc(100% + 12px)'
@@ -224,22 +239,22 @@ export default function TrustedSourcesNetwork() {
 
         {/* Central CheckNow Logo */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-          
+
           {/* Pulsating Rings (Bolas Azuis e Verdes - Distâncias Aumentadas) */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div 
+            <div
               className="absolute rounded-full bg-primary-500/10 animate-ping-slow"
               style={{ width: `${centerSize + pulseDistances[0]}px`, height: `${centerSize + pulseDistances[0]}px` }}
             />
-            <div 
+            <div
               className="absolute rounded-full bg-primary-500/15 animate-ping-slower"
               style={{ width: `${centerSize + pulseDistances[1]}px`, height: `${centerSize + pulseDistances[1]}px` }}
             />
-            <div 
+            <div
               className="absolute rounded-full bg-success-500/12 animate-ping-slowest"
               style={{ width: `${centerSize + pulseDistances[2]}px`, height: `${centerSize + pulseDistances[2]}px` }}
             />
-            <div 
+            <div
               className="absolute rounded-full bg-success-500/18 animate-ping-slow"
               style={{ width: `${centerSize + pulseDistances[3]}px`, height: `${centerSize + pulseDistances[3]}px` }}
             />
@@ -247,7 +262,7 @@ export default function TrustedSourcesNetwork() {
 
           {/* Rotating Border */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div 
+            <div
               className="absolute rounded-full border-4 border-primary-500/30 animate-spin-slow"
               style={{ width: `${centerSize + 50}px`, height: `${centerSize + 50}px` }}
             />
@@ -280,7 +295,7 @@ export default function TrustedSourcesNetwork() {
       </div>
 
       {/* Bottom Info */}
-      <div className="text-center mt-4 z-10">
+      <div className="text-center mt-12 z-10">
         <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-primary-50 to-success-50 dark:from-primary-900/20 dark:to-success-900/20 border-2 border-primary-300 dark:border-primary-700">
           <Sparkles className="w-5 h-5 text-primary-500" />
           <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">
