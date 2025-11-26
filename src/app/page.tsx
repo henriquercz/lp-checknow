@@ -2,7 +2,7 @@
  * Página Inicial da Landing Page CheckNow
  * Autor: Capitão Henrique
  * Data: Outubro 2025
- * Versão: 1.3.2
+ * Versão: 1.5.0
  */
 
 "use client";
@@ -10,15 +10,13 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight, CheckCircle, AlertTriangle, FileText } from "lucide-react";
+import { Download, Shield, Zap, Sparkles, Instagram, Brain, Lock, TrendingUp, Clock, ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { TubelightNavbar } from "@/components/TubelightNavbar";
 import { AnimatedWords } from "@/components/AnimatedWords";
 import { AnimatedUnderlineText } from "@/components/ui/animated-underline-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import { ContainerScroll } from "@/components/ContainerScroll";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StepCard } from "@/components/StepCard";
 import { PricingCard } from "@/components/PricingCard";
@@ -42,6 +40,11 @@ const TrustedSourcesNetwork = dynamic(() => import("@/components/TrustedSourcesN
 
 const Footer = dynamic(() => import("@/components/Footer").then(mod => ({ default: mod.Footer })), {
   loading: () => <div className="h-64 bg-neutral-900 animate-pulse" />,
+});
+
+// Nova seção com Scroll Pinning
+const AppPreviewSection = dynamic(() => import("@/components/AppPreviewSection").then(mod => ({ default: mod.AppPreviewSection })), {
+  loading: () => <div className="h-screen bg-neutral-50 dark:bg-neutral-900 animate-pulse" />,
 });
 
 // Variantes de animação
@@ -363,61 +366,8 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* App Preview with Container Scroll Animation */}
-      <section className="section bg-gradient-to-b from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-800 overflow-hidden py-12">
-        <div className="relative">
-          <ContainerScroll
-            titleComponent={
-              <div className="text-center">
-                <h2 className="text-2xl md:text-4xl font-bold mb-2">
-                  Experiência Intuitiva e <span className="text-primary-500">Poderosa</span>
-                </h2>
-                <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
-                  Verifique notícias com apenas alguns toques.
-                </p>
-              </div>
-            }
-          >
-            <div className="w-full h-full overflow-y-auto scrollbar-hide">
-              <div className="space-y-2 p-2">
-                {/* Telas do app em proporção 9:16 */}
-                <Image
-                  src="/images/smartphone/home.PNG"
-                  alt="CheckNow App - Tela Inicial"
-                  width={400}
-                  height={711}
-                  className="w-full h-auto rounded-lg"
-                  loading="lazy"
-                />
-                <Image
-                  src="/images/smartphone/noticias.PNG"
-                  alt="CheckNow App - Notícias"
-                  width={400}
-                  height={711}
-                  className="w-full h-auto rounded-lg"
-                  loading="lazy"
-                />
-                <Image
-                  src="/images/smartphone/veredito.PNG"
-                  alt="CheckNow App - Veredito"
-                  width={400}
-                  height={711}
-                  className="w-full h-auto rounded-lg"
-                  loading="lazy"
-                />
-                <Image
-                  src="/images/smartphone/educacao.PNG"
-                  alt="CheckNow App - Educação"
-                  width={400}
-                  height={711}
-                  className="w-full h-auto rounded-lg"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </ContainerScroll>
-        </div>
-      </section>
+      {/* App Preview with Scroll Pinning Animation */}
+      <AppPreviewSection />
 
       {/* How It Works Section */}
       <section id="how-it-works" className="section bg-white dark:bg-neutral-900">
