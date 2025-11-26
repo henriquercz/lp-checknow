@@ -1,7 +1,6 @@
 /**
  * Componente TubelightNavbar - Navbar moderna com efeito tubelight
  * Adaptado do 21st.dev para CheckNow
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.1
  */

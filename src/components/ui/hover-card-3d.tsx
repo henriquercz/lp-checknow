@@ -1,7 +1,6 @@
 /**
  * Componente HoverCard3D - Card com efeito 3D ao hover
  * Inspirado em Aceternity UI e 21st.dev
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
  */

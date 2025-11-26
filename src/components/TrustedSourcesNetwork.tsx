@@ -1,6 +1,5 @@
 /**
  * Componente TrustedSourcesNetwork - Rede de Fontes Confiáveis
- * Autor: Capitão Henrique
  * Data: Novembro 2025
  * Versão: 4.0.0 - Alinhamento Perfeito
  */

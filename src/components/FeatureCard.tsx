@@ -1,6 +1,5 @@
 /**
  * Componente FeatureCard - Card de feature com ícone animado
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
  */

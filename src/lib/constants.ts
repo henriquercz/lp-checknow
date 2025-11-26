@@ -1,6 +1,5 @@
 /**
  * Constantes da Landing Page CheckNow
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
  */

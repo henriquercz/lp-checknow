@@ -1,6 +1,5 @@
 /**
  * Componente DownloadModal - Modal de Download com Liquid Glass
- * Autor: Capitão Henrique
  * Data: Novembro 2025
  * Versão: 1.0.0
  */

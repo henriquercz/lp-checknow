@@ -1,6 +1,5 @@
 /**
  * Componente Footer
- * Autor: Capitão Henrique
  * Data: Novembro 2025
  * Versão: 2.0.0 - Clean & Premium
  */

@@ -120,12 +120,17 @@ A landing page está disponível em: **https://checknow.app**
 
 Este projeto é parte do CheckNow TCC 2025.
 
-## 👨‍💻 Desenvolvedor
+## 👨‍💻 Equipe de Desenvolvimento
 
-**Henrique Rezende**
+Este projeto foi desenvolvido com dedicação pela equipe:
 
-- GitHub: [@henriquercz](https://github.com/henriquercz)
-- Email: henriquechagas06@gmail.com
+- **Artur Liu**
+- **Felipe Santos**
+- **Gabriel Moreira**
+- **Guilherme Ferreira**
+- **Henrique Rezende** ([@henriquercz](https://github.com/henriquercz))
+
+Entre em contato: henriquechagas06@gmail.com
 
 ## 🙏 Agradecimentos
 

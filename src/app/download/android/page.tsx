@@ -2,7 +2,6 @@
  * Página de Download Android - Gu
 
 ia de Instalação com APK
- * Autor: Capitão Henrique
  * Data: Novembro 2025
  * Versão: 2.0.0
  */

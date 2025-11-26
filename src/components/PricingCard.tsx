@@ -1,6 +1,5 @@
 /**
  * Componente PricingCard - Card de preço com destaque para plano recomendado
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
  */

@@ -1,6 +1,5 @@
 /**
  * Componente AppFeaturesShowcase - Carrossel de Funcionalidades do App
- * Autor: Capitão Henrique
  * Data: Novembro 2025
  * Versão: 1.0.0
  */

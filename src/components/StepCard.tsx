@@ -1,6 +1,5 @@
 /**
  * Componente StepCard - Card de passo com timeline animado
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
  */

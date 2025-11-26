@@ -1,7 +1,6 @@
 /**
  * Componente AnimatedWords - Palavras animadas alternando
  * Adaptado do 21st.dev para CheckNow
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
  */

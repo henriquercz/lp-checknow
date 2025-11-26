@@ -1,6 +1,5 @@
 /**
  * Componente SplineRobot - Checkito Animado com Logo CheckNow
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
  */

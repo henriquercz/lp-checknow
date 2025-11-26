@@ -1,6 +1,5 @@
 /**
  * Componente FAQItem - Item de FAQ com accordion animado
- * Autor: Capitão Henrique
  * Data: Outubro 2025
  * Versão: 1.0.0
  */

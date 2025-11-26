@@ -1,6 +1,5 @@
 /**
  * Componente AppPreviewSection - Seção de Preview do App com Scroll Lock Real
- * Autor: Capitão Henrique
  * Data: Novembro 2025
  * Versão: 2.0.0
  * 
